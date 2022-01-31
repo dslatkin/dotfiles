@@ -13,9 +13,12 @@ that you open:
 
 ```json
 {
-    "dotfiles.repository": "https://github.com/dslatkin/dotfiles",
+    "dotfiles.repository": "https://github.com/dslatkin/dotfiles.git",
     "dotfiles.targetPath": "~/dotfiles",
     "dotfiles.installCommand": "~/dotfiles/install.sh",
+    "remote.containers.dotfiles.repository": "https://github.com/dslatkin/dotfiles.git",
+    "remote.containers.dotfiles.targetPath": "~/dotfiles",
+    "remote.containers.dotfiles.installCommand": "~/dotfiles/install.sh",
     "terminal.integrated.profiles.linux": {
         "fish": { "path": "/usr/bin/fish" },
         // ...

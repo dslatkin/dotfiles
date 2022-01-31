@@ -38,3 +38,9 @@ to automatically sync the `dotfile.*` settings which are by default exluded:
     ],
 }
 ```
+
+## Features
+
+-   [fish](https://fishshell.com/): An opinionated, beginner-friendly shell. Not
+    POSIX-compliant (unlike `zsh`) but more beginner-friendly and requires
+    less configuration for nicer features.

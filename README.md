@@ -16,9 +16,12 @@ that you open:
     "dotfiles.repository": "https://github.com/dslatkin/dotfiles.git",
     "dotfiles.targetPath": "~/dotfiles",
     "dotfiles.installCommand": "~/dotfiles/install.sh",
+    "terminal.integrated.defaultProfile.linux": "fish",
     "terminal.integrated.profiles.linux": {
-        "fish": { "path": "/usr/bin/fish" },
-    },
+        "fish": {
+            "path": "/usr/bin/fish"
+        },
+    }
 }
 ```
 

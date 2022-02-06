@@ -43,3 +43,7 @@ since `dotfile.*` settings are excluded from sync by default:
 -   [fish](https://fishshell.com/): An opinionated, beginner-friendly shell. Not
     POSIX-compliant (unlike `zsh`) but more beginner-friendly and requires
     less configuration for nicer features.
+
+## Todos
+
+-   Add [chezmoi](https://www.chezmoi.io/) for cross-system dotfiles management.

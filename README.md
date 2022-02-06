@@ -16,12 +16,8 @@ that you open:
     "dotfiles.repository": "https://github.com/dslatkin/dotfiles.git",
     "dotfiles.targetPath": "~/dotfiles",
     "dotfiles.installCommand": "~/dotfiles/install.sh",
-    "remote.containers.dotfiles.repository": "https://github.com/dslatkin/dotfiles.git",
-    "remote.containers.dotfiles.targetPath": "~/dotfiles",
-    "remote.containers.dotfiles.installCommand": "~/dotfiles/install.sh",
     "terminal.integrated.profiles.linux": {
         "fish": { "path": "/usr/bin/fish" },
-        // ...
     },
 }
 ```
@@ -35,9 +31,6 @@ to automatically sync the `dotfile.*` settings which are by default exluded:
         "-dotfiles.installCommand",
         "-dotfiles.repository",
         "-dotfiles.targetPath",
-        "-remote.containers.dotfiles.installCommand",
-        "-remote.containers.dotfiles.repository",
-        "-remote.containers.dotfiles.targetPath"
     ],
 }
 ```

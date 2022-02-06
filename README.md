@@ -5,7 +5,7 @@ VS Code dev containers based off Debian images.
 
 ## Get started
 
-As always, inspect the [shell script](install.sh).
+As always, [inspect the shell script](install.sh).
 
 Add this to your `settings.json` in VS Code and they'll automatically
 get copied into [dev containers](https://code.visualstudio.com/docs/remote/containers)
@@ -23,7 +23,7 @@ that you open:
 ```
 
 If you sync your VS Code settings, you'll want to add this setting as well
-to automatically sync the `dotfile.*` settings which are by default exluded:
+since `dotfile.*` settings are excluded from sync by default:
 
 ```json
 {

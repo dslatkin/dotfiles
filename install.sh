@@ -8,6 +8,7 @@ echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Deb
 curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_9.0/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
 sudo apt-get update
 sudo apt-get install fish -y
+fish -v
 
 # Install starship binary binary
 echo "🚀 Dotfiles: Install starship binary"
@@ -24,7 +25,7 @@ sudo chsh -s /usr/bin/fish
 
 # Add starship to fish
 echo "🚀 Dotfiles: Create fish config file"
-fish -v
+fish -c ''
 echo "🚀 Dotfiles: Add starship to fish"
 starship init fish >> ~/.config/fish/config.fish
 

@@ -20,7 +20,7 @@ echo "eval \"$(starship init bash)\"" >> ~/.bashrc
 # Change default shell to fish
 echo "🚀 Dotfiles: Change default shell to fish"
 # echo /usr/bin/fish | sudo tee -a /etc/shells
-chsh -s /usr/bin/fish
+sudo chsh -s /usr/bin/fish
 
 # Add starship to fish
 echo "🚀 Dotfiles: Add starship to fish"

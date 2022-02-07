@@ -20,7 +20,7 @@ info Add starship to bash
 starship init bash >> ~/.bashrc
 
 info Change default shell to fish
-sudo chsh -s /usr/bin/fish
+sudo chsh -s /usr/bin/fish "$USER"
 
 info Add starship to fish
 fish -c 'echo Creating fish config file'

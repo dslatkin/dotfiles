@@ -15,7 +15,7 @@ bash -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes --verbose
 
 # Add starship to bash
 echo "🚀 Dotfiles: Add starship to bash"
-echo "eval \"$(starship init bash)\"" >> ~/.bashrc
+echo starship init bash >> ~/.bashrc
 
 # Change default shell to fish
 echo "🚀 Dotfiles: Change default shell to fish"

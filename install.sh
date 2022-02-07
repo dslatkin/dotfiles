@@ -23,6 +23,8 @@ echo "🚀 Dotfiles: Change default shell to fish"
 sudo chsh -s /usr/bin/fish
 
 # Add starship to fish
+echo "🚀 Dotfiles: Create fish config file"
+fish
 echo "🚀 Dotfiles: Add starship to fish"
 starship init fish >> ~/.config/fish/config.fish
 

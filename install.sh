@@ -14,7 +14,7 @@ sudo apt-get install fish -y
 fish -v
 
 info Install starship binary
-bash -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes --verbose
+sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes --verbose
 
 info Add starship to bash
 starship init bash >> ~/.bashrc

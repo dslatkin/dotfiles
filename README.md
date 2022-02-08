@@ -1,12 +1,12 @@
 # dslatkin/dotfiles
 
 These are my [dotfiles](https://dotfiles.github.io/), primarily meant for use in
-VS Code dev containers based on Debian images.
+VS Code dev containers extending Debian images.
 
 ## Features
     
--   [fish](https://fishshell.com/): An opinionated, beginner-friendly shell.
--   [starship](https://starship.rs/): Minimal, fast, customizable prompt.about every shell.
+-   [fish](https://fishshell.com/): An opinionated, beginner-friendly shell
+-   [starship](https://starship.rs/): Minimal, fast, customizable prompt.about every shell
 
 ## Setup
 
@@ -52,8 +52,8 @@ that you open:
 }
 ```
 
-If you sync your VS Code settings, `dotfile.*` settings are excluded from sync
-by default. To fix this, add this setting:
+If you sync your VS Code settings, `dotfile.*` settings are excluded
+by default. To fix this, add this setting to revert that:
 
 ```json
 {

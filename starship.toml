@@ -1,0 +1,2 @@
+# Remove blank line between shell prompts
+add_newline = false

@@ -12,17 +12,11 @@ curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debi
 sudo apt-get update
 sudo apt-get install fish -y
 fish -v
-
-info Install starship binary
-sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes --verbose
-
-info Add starship to bash
-starship init bash >> ~/.bashrc
-
-info Change default shell to fish
 sudo chsh -s /usr/bin/fish "$USER"
 
-info Add starship to fish
+info Install starship
+sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes --verbose
+starship init bash >> ~/.bashrc
 fish -c 'echo Creating fish config file'
 starship init fish >> ~/.config/fish/config.fish
 

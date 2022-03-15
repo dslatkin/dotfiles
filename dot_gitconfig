@@ -1,2 +1,13 @@
 [user]
 	name = Daniel Slatkin
+	email = danielslatkin@gmail.com
+
+# To set an alias: git config --configLocation alias.aliasName 'command --options'
+[alias]
+	# https://stackoverflow.com/a/11768843/9207275
+	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"
+
+	# https://stackoverflow.com/a/25387310/9207275
+	hide = update-index --assume-unchanged
+    unhide = update-index --no-assume-unchanged
+	hidden = ! git ls-files -v | grep '^h' | cut -c3-

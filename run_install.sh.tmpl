@@ -4,28 +4,53 @@ info() {
   echo "🚀 Dotfiles: $*"
 }
 
-info Starting install "$0"
+info Installing dotfiles "$0"
+{{ if eq .chezmoi.os "darwin" }}
+# Mac info 
+sw_vers
+{{ else if eq .chezmoi.os "linux" }}
+# Linux info
+uname -r
+{{   if eq .chezmoi.osRelease.id "debian" }}
+# Debian info
+lsb_release -a
+{{   end }}
+{{ end }}
 
-info Install fish
+info Installing fish
+{{ if eq .chezmoi.os "darwin" }}
+# macOS
+info TODO
+{{ else if eq .chezmoi.os "linux" }}
+{{   if eq .chezmoi.osRelease.id "debian" }}
+# Debian
 echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_9.0/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
 curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_9.0/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
 sudo apt-get update
 sudo apt-get install fish -y
-fish -v
-
+echo $(fish -v)
 info Changing shell for "$USER"
 cat /etc/passwd
 sudo chsh -s /usr/bin/fish "$USER"
 info Shell changed
 cat /etc/passwd
+{{   end }}
+{{ end }}
 
 info Install starship
+{{ if eq .chezmoi.os "darwin" }}
+# macOS
+info TODO
+{{ else if eq .chezmoi.os "linux" }}
+{{   if eq .chezmoi.osRelease.id "debian" }}
+# Debian
 sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes --verbose
 starship init bash >> ~/.bashrc
 fish -c 'echo Creating fish config file'
 starship init fish >> ~/.config/fish/config.fish
-
 info Configure starship
 cp starship.toml ~/.config/
+{{   end }}
+{{ end }}
 
 info Finished install

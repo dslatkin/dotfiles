@@ -6,13 +6,13 @@ info() {
 
 info Installing dotfiles "$0"
 {{ if eq .chezmoi.os "darwin" }}
-# Mac info 
+# Mac
 sw_vers
 {{ else if eq .chezmoi.os "linux" }}
-# Linux info
+# Linux
 uname -r
 {{   if eq .chezmoi.osRelease.id "debian" }}
-# Debian info
+# Debian
 lsb_release -a
 {{   end }}
 {{ end }}

@@ -7,6 +7,8 @@
 
 set -e # -e: exit on error
 
+echo 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
+
 # Get chezmoi if missing
 if [ ! "$(command -v chezmoi)" ]; then
   bin_dir="$HOME/.local/bin"

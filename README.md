@@ -4,14 +4,29 @@ These are my [dotfiles](https://dotfiles.github.io/), primarily meant for use in
 VS Code dev containers extending Debian images.
 
 ## Features
-    
+
 -   [fish](https://fishshell.com/): An opinionated, beginner-friendly shell
 -   [starship](https://starship.rs/): Minimal, fast, customizable prompt.about every shell
 
 ## Setup
 
-Most of the work is done in [install.sh](install.sh). Make sure to inspect that
-file and any of the scripts it downloads and runs.
+If you're using Mac or Linux, you should use [brew](https://brew.sh) as your package
+manager. Follow brew's install prompts. For Linux, you'll modify `.profile` to add brew to your
+path, but since `.profile` is only executed for login shells, you'll either need to
+restart your computer or manually execute it with `~/. .profile`.
+
+With brew installed, install [chezmoi](https://www.chezmoi.io/) (for dotfile management)
+and [age](https://age-encryption.org) (for encrypting sensitive dotfiles):
+
+```sh
+brew install chezmoi age
+```
+
+Then initialize chezmoi and apply your dotfiles from this repo:
+
+```sh
+chezmoi init --apply dslatkin
+```
 
 ### Fonts
 
@@ -67,5 +82,5 @@ by default. To fix this, add this setting to revert that:
 
 ## Todos
 
--   [chezmoi](https://www.chezmoi.io/)
 -   [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish)
+-   Windows (use Scoop for package management)

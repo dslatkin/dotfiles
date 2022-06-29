@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo dotfiles: "$0"
+
 if [ ! -f "${HOME}/.chezmoi.key" ]; then
     age --decrypt --output "${HOME}/.chezmoi.key" "{{ .chezmoi.sourceDir }}/.chezmoi.key.age"
     chmod 600 "${HOME}/.chezmoi.key"

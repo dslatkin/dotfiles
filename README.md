@@ -85,3 +85,4 @@ by default. To fix this, add this setting to revert that:
 -   [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish)
 -   Windows (use Scoop for package management)
 -   Use a brewfile with [homebrew bundle](https://github.com/Homebrew/homebrew-bundle)
+-   Install [Unattended upgrades](https://wiki.debian.org/UnattendedUpgrades) for updating debian packages

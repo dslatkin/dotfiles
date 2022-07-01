@@ -1,5 +1,5 @@
 #!/bin/bash
-echo dotfiles: $0
+echo dotfiles: "$0"
 
 # Prep package installations
 export HOMEBREW_NO_ENV_HINTS=true

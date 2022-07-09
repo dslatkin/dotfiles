@@ -63,6 +63,7 @@ then
     # - Move my OS to the last release supported (LTS v22->20, not ideal)
     # - Convert my script to an Ubuntu install (probably best)
     # - Use the canned install script at https://get.docker.com/ (tested, has same issue w/ unsupported Debian)
+    # - Try Docker desktop instead https://docs.docker.com/desktop/linux/install/debian/
 
     sudo apt-get update
     sudo apt-get install --no-install-recommends docker-ce docker-ce-cli containerd.io docker-compose-plugin

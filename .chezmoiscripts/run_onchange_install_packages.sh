@@ -42,8 +42,7 @@ then
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" \
         | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-    # todo: Getting an error on next command, maybe https://stackoverflow.com/a/43639310?
-    # https://docs.docker.com/engine/install/debian/
+    # todo: Getting an error on next command
     #
     # Hit:9 http://us.archive.ubuntu.com/ubuntu jammy-backports InRelease            
     # Hit:10 https://ppa.launchpadcontent.net/kisak/kisak-mesa/ubuntu jammy InRelease
@@ -51,9 +50,21 @@ then
     # E: The repository 'https://download.docker.com/linux/debian jammy Release' does not have a Release file.
     # N: Updating from such a repository can't be done securely, and is therefore disabled by default.
     # N: See apt-secure(8) manpage for repository creation and user configuration details.
+    #
+    # Likely due to lsb_release giving the Ubuntu codename which doesn't work
+    # with the install script that Docker suggests for Debian, see:
+    # 
+    # - https://download.docker.com/linux/debian
+    # - https://download.docker.com/linux/ubuntu/dists/
+    #
+    # From `cat /etc/debian_version` it like Pop_OS! (based on Ubuntu 22) uses
+    # `bookworm/sid` which isn't supported by Docker yet. Options:
+    #
+    # - Move my OS to the last release supported (LTS v22->20, not ideal)
+    # - Convert my script to an Ubuntu install (probably best)
+    # - Use the canned install script at https://get.docker.com/ (tested, has same issue w/ unsupported Debian)
 
     sudo apt-get update
-
     sudo apt-get install --no-install-recommends docker-ce docker-ce-cli containerd.io docker-compose-plugin
 else
     echo dotfiles: Docker is already installed

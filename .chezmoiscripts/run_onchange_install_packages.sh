@@ -4,6 +4,7 @@ echo dotfiles: "$0"
 # Prep package installations
 export HOMEBREW_NO_ENV_HINTS=true
 export DEBIAN_FRONTEND=noninteractive
+export DEBIAN_PRIORITY=critical
 sudo apt-get update
 
 # Install VS Code (for Mac, use its flask on brew instead)
@@ -29,4 +30,31 @@ then
     # bash -c "(starship init bash && starship completions bash) >> ~/.bashrc"
 else
     echo dotfiles: Starship is already installed
+fi
+
+# Install Docker
+if ! command -v docker &> /dev/null
+then
+    echo dotfiles: Installing Docker engine
+    sudo apt-get -y install --no-install-recommends ca-certificates curl gnupg lsb-release
+    sudo mkdir -p /etc/apt/keyrings
+    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" \
+        | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+    # todo: Getting an error on next command, maybe https://stackoverflow.com/a/43639310?
+    # https://docs.docker.com/engine/install/debian/
+    #
+    # Hit:9 http://us.archive.ubuntu.com/ubuntu jammy-backports InRelease            
+    # Hit:10 https://ppa.launchpadcontent.net/kisak/kisak-mesa/ubuntu jammy InRelease
+    # Reading package lists... Done
+    # E: The repository 'https://download.docker.com/linux/debian jammy Release' does not have a Release file.
+    # N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+    # N: See apt-secure(8) manpage for repository creation and user configuration details.
+
+    sudo apt-get update
+
+    sudo apt-get install --no-install-recommends docker-ce docker-ce-cli containerd.io docker-compose-plugin
+else
+    echo dotfiles: Docker is already installed
 fi

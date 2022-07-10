@@ -43,6 +43,10 @@ then
         | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     sudo apt-get update
     sudo apt-get install --no-install-recommends docker-ce docker-ce-cli containerd.io docker-compose-plugin
+    echo dotfiles: Configuring Docker permissions
+    sudo groupadd docker
+    sudo usermod -aG docker "$USER"
+    newgrp docker
 else
     echo dotfiles: Docker is already installed
 fi

@@ -27,7 +27,7 @@ if ! command -v starship &> /dev/null
 then
     echo dotfiles: Installing Starship
     brew install --quiet starship
-    # bash -c "(starship init bash && starship completions bash) >> ~/.bashrc"
+    bash -c "(starship init bash && starship completions bash) >> ~/.bashrc"
 else
     echo dotfiles: Starship is already installed
 fi

@@ -1,6 +1,15 @@
-#!/bin/sh
+#!/bin/bash
 
 echo dotfiles: "$0"
+
+# Install age for Debian to be used for dotfile encryption
+if ! command -v age &> /dev/null
+then
+    echo dotfiles: Installing age
+    sudo apt-get -y install --no-install-recommends age
+else
+    echo dotfiles: VS Code is already installed
+fi
 
 if [ ! -f "${HOME}/.chezmoi.key" ]; then
     age --decrypt --output "${HOME}/.chezmoi.key" "{{ .chezmoi.sourceDir }}/.chezmoi.key.age"

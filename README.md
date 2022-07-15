@@ -1,32 +1,19 @@
 # dslatkin/dotfiles
 
-These are my [dotfiles](https://dotfiles.github.io/), primarily meant for use in
-VS Code dev containers extending Debian images.
-
-## Features
-
--   [fish](https://fishshell.com/): An opinionated, beginner-friendly shell
--   [starship](https://starship.rs/): Minimal, fast, customizable prompt.about every shell
-
 ## Setup
 
-If you're using Mac or Linux, you should use [brew](https://brew.sh) as your package
-manager. Follow brew's install prompts. For Linux, you'll modify `.profile` to add brew to your
-path, but since `.profile` is only executed for login shells, you'll either need to
-restart your computer or manually execute it with `~/. .profile`.
+### Install brew
 
-With brew installed, install [chezmoi](https://www.chezmoi.io/) (for dotfile management)
-and [age](https://age-encryption.org) (for encrypting sensitive dotfiles):
+#### Linux
 
-```sh
-brew install chezmoi age
-```
-
-Then initialize chezmoi and apply your dotfiles from this repo:
-
-```sh
-chezmoi init --apply dslatkin
-```
+1. Install [brew](https://brew.sh)
+2. Modify `.profile` to add `brew` to $PATH
+    -   Reapply `.profile` which runs on login shell inits by either
+        restarting your computer or re-runing it with `~/. .profile`
+3.  `brew install chezmoi`
+    -   Chezmoi for dotfile manage
+    -   Age for encryption of dotfiles
+4.  `chezmoi init dslatkin/dotfiles --apply`
 
 ### Fonts
 

@@ -1,13 +1,16 @@
 #!/bin/bash
 echo dotfiles: "$0"
 
+# Exit on error
+set -o errexit
+
 # Prep package installations
 export HOMEBREW_NO_ENV_HINTS=true
 export DEBIAN_FRONTEND=noninteractive
 export DEBIAN_PRIORITY=critical
 sudo apt-get update
 
-# Install VS Code for Debian (for Mac, use brew's flask instead)
+# Install VS Code (Debian; for Mac, use brew flask)
 if ! command -v code &> /dev/null
 then
     echo dotfiles: Installing VS Code
@@ -22,7 +25,18 @@ else
     echo dotfiles: VS Code is already installed
 fi
 
-# Install Starship for Debian
+# Install FiraCode font variant (Pop_OS!)
+FONT_SOURCE='https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf'
+FONT_TARGET="$HOME/.local/share/fonts/Fira Code Regular Nerd Font Complete.ttf"
+if ! [[ -f $FONT_TARGET ]]
+then
+    echo 'dotfiles: Installing Fira Code from Nerd Fonts'
+    curl --fail --silent --show-error --location $FONT_SOURCE > "$FONT_TARGET"
+else
+    echo dotfiles: Fira Code is already installed
+fi
+
+# Install Starship (Debian)
 if ! command -v starship &> /dev/null
 then
     echo dotfiles: Installing Starship
@@ -32,13 +46,13 @@ else
     echo dotfiles: Starship is already installed
 fi
 
-# Install Docker for Ubuntu
+# Install Docker (Ubuntu)
 if ! command -v docker &> /dev/null
 then
     echo dotfiles: Installing Docker engine
     sudo apt-get -y install --no-install-recommends ca-certificates curl gnupg lsb-release
     sudo mkdir -p /etc/apt/keyrings
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    curl --fail --silent --show-error --location=https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
         | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     sudo apt-get update

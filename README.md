@@ -1,13 +1,11 @@
 # dslatkin/dotfiles
 
-## Setup
+## Installation
 
-### Install brew
-
-#### Linux
+### Linux
 
 1. Install [brew](https://brew.sh)
-2. Modify `.profile` to add `brew` to $PATH
+2. Modify `.profile` to add `brew` to `$PATH`
     -   Reapply `.profile` which runs on login shell inits by either
         restarting your computer or re-runing it with `~/. .profile`
 3.  `brew install chezmoi`
@@ -17,12 +15,8 @@
 
 ### Fonts
 
-You'll need a [Nerd Font](https://nerdfonts.com) for the glyphs used in
-starship. I've found browsing their GitHub to be the easiest way to download
-just the fonts I need.
-
-Personally, I like [Fira Code](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
-with the following settings:
+To make use of the FiraCode nerd fonts used in Starship's glyphs, make sure
+your VS Code settings are configured to something like the following:
 
 ```json
 {
@@ -34,11 +28,11 @@ with the following settings:
 } 
 ```
 
-### Dotfiles
+<!--
+### Dev containers
 
 Add this to your `settings.json` in VS Code and these dotfiles will automatically
-get copied into [dev containers](https://code.visualstudio.com/docs/remote/containers)
-that you open:
+get copied into [dev containers](https://code.visualstudio.com/docs/remote/containers):
 
 ```json
 {
@@ -66,10 +60,12 @@ by default. To fix this, add this setting to revert that:
     ]
 }
 ```
+-->
 
 ## Todos
 
--   [Oh My Fish](https://github.com/oh-my-fish/oh-my-fish)
--   Windows (use Scoop for package management)
--   Use a brewfile with [homebrew bundle](https://github.com/Homebrew/homebrew-bundle)
--   Install [Unattended upgrades](https://wiki.debian.org/UnattendedUpgrades) for updating debian packages
+-   [nu shell](https://nushell.sh)
+-   [VS Code dev containers](https://www.chezmoi.io/user-guide/machines/containers-and-vms/)
+-   [Windows via winget](https://github.com/twpayne/chezmoi/issues/812)
+-   [homebrew bundle](https://github.com/Homebrew/homebrew-bundle)
+-   [Debian unattended upgrades](https://wiki.debian.org/UnattendedUpgrades) for updating debian packages

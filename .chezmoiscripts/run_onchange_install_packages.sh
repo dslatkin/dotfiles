@@ -26,12 +26,14 @@ else
 fi
 
 # Install FiraCode font variant (Pop_OS!)
-FONT_SOURCE='https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf'
-FONT_TARGET="$HOME/.local/share/fonts/Fira Code Regular Nerd Font Complete.ttf"
-if ! [[ -f $FONT_TARGET ]]
+font_source='https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf'
+font_target="$HOME/.local/share/fonts/Fira Code Regular Nerd Font Complete.ttf"
+if ! [[ -f $font_target ]]
 then
     echo 'dotfiles: Installing Fira Code from Nerd Fonts'
-    curl --fail --silent --show-error --location $FONT_SOURCE > "$FONT_TARGET"
+    curl --fail --silent --show-error --location $font_source > "$font_target"
+    echo "⚠️ You may need to configure VS Code's font family to use Fira Code:"
+    fc-list | grep "$font_target"
 else
     echo dotfiles: Fira Code is already installed
 fi

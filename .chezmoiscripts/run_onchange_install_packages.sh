@@ -12,6 +12,13 @@ echo dotfiles: Updating packages
 brew update --quiet
 sudo apt-get -qq update
 
+# Todo: apt install belows should be more DRY-like
+#
+# According to apt-get's man pages, we can set an apt config file with
+# the APT_CONFIG variable for `apt-get` so we don't have to constantly  run the
+# same flags like `-q`, `-y`, etc. Alternatively, we could create a bash utility
+# function for installing packages by name.
+
 # Install VS Code (Debian; for Mac, use brew cask)
 if ! command -v code &> /dev/null
 then
@@ -85,16 +92,21 @@ else
 fi
 
 # Install 1Password CLI (Debian)
-if ! command -v 1password &> /dev/null
+if ! command -v op &> /dev/null
 then
-    curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
-    echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list > /dev/null
+    curl -sS https://downloads.1password.com/linux/keys/1password.asc | \
+    sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/$(dpkg --print-architecture) stable main" | \
+    sudo tee /etc/apt/sources.list.d/1password.list > /dev/null
     sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
-    curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol > /dev/null
+    curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | \
+    sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol > /dev/null
     sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
-    curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
-    echo DEBIAN_PRIORITY IS $DEBIAN_PRIORITY
-    sudo apt-get -q -y install --no-install-recommends 1password
+    curl -sS https://downloads.1password.com/linux/keys/1password.asc | \
+    sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+    sudo apt-get -qq update
+    sudo apt-get -q -y install --no-install-recommends 1password-cli
+    op --version
 else
     echo dotfiles: 1password CLI is already installed
 fi

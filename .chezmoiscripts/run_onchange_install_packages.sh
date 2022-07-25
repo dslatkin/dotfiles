@@ -30,6 +30,7 @@ then
     rm -f packages.microsoft.gpg
     sudo apt-get -qq update
     sudo apt-get -q -y install --no-install-recommends apt-transport-https code
+    code --version
 else
     echo dotfiles: VS Code is already installed
 fi
@@ -53,6 +54,7 @@ then
     echo dotfiles: Installing Starship
     brew install --quiet starship
     bash -c "(starship init bash && starship completions bash) >> ~/.bashrc"
+    starship --version
 else
     echo dotfiles: Starship is already installed
 fi
@@ -68,7 +70,7 @@ then
         | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     sudo apt-get -qq update
     sudo apt-get -q -y install --no-install-recommends docker-ce docker-ce-cli containerd.io docker-compose-plugin
-    echo dotfiles: Configuring Docker permissions
+    docker --version
     sudo groupadd docker
     sudo usermod -aG docker "$USER"
     newgrp docker
@@ -87,6 +89,7 @@ then
     echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list > /dev/null
     sudo apt-get -qq update
     sudo apt-get -q -y install --no-install-recommends brave-browser
+    brave-browser --version
 else
     echo dotfiles: Brave is already installed
 fi

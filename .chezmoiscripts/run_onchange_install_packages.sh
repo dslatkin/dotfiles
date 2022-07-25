@@ -63,7 +63,7 @@ then
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
         | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     sudo apt-get update
-    sudo apt-get install --no-install-recommends docker-ce docker-ce-cli containerd.io docker-compose-plugin
+    sudo apt-get -y install --no-install-recommends docker-ce docker-ce-cli containerd.io docker-compose-plugin
     echo dotfiles: Configuring Docker permissions
     sudo groupadd docker
     sudo usermod -aG docker "$USER"
@@ -78,11 +78,11 @@ fi
 # https://www.reddit.com/r/pop_os/comments/f3s4c4/comment/fhp70xs
 if ! command -v brave-browser &> /dev/null
 then
-    sudo apt-get install --no-install-recommends apt-transport-https curl
+    sudo apt-get -y install --no-install-recommends apt-transport-https curl
     sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
     echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
     sudo apt-get update
-    sudo apt-get install --no-install-recommends brave-browser
+    sudo apt-get -y install --no-install-recommends brave-browser
 else
     echo dotfiles: Brave is already installed
 fi

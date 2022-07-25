@@ -10,7 +10,7 @@ export DEBIAN_PRIORITY=critical
 
 echo dotfiles: Updating packages
 brew update --quiet
-sudo apt-get update
+sudo apt-get -qq update
 
 # Install VS Code (Debian; for Mac, use brew cask)
 if ! command -v code &> /dev/null

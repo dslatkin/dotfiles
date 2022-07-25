@@ -6,11 +6,12 @@ set -o errexit
 
 # Prep package installations
 export HOMEBREW_NO_ENV_HINTS=true
+export HOMEBREW_NO_INSTALL_UPGRADE=true
 export DEBIAN_FRONTEND=noninteractive
 export DEBIAN_PRIORITY=critical
 sudo apt-get update
 
-# Install VS Code (Debian; for Mac, use brew flask)
+# Install VS Code (Debian; for Mac, use brew cask)
 if ! command -v code &> /dev/null
 then
     echo dotfiles: Installing VS Code

@@ -67,3 +67,19 @@ then
 else
     echo dotfiles: Docker is already installed
 fi
+
+# Install Brave for a Chromium browser experience
+#
+# Note: Dragging is slow on Pop_OS!
+# https://www.reddit.com/r/pop_os/comments/f3s4c4/comment/fhp70xs
+if ! command -v brave-browser &> /dev/null
+then
+    sudo apt-get install --no-install-recommends apt-transport-https curl
+    sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+    sudo apt-get update
+    sudo apt-get install --no-install-recommends brave-browser
+else
+    echo dotfiles: Brave is already installed
+fi
+

@@ -21,7 +21,7 @@ then
     sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
     sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
     rm -f packages.microsoft.gpg
-    sudo apt-get update
+    sudo apt-get -qq update
     sudo apt-get -q -y install --no-install-recommends apt-transport-https code
 else
     echo dotfiles: VS Code is already installed
@@ -59,7 +59,7 @@ then
     curl --fail --silent --show-error --location=https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
         | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    sudo apt-get update
+    sudo apt-get -qq update
     sudo apt-get -q -y install --no-install-recommends docker-ce docker-ce-cli containerd.io docker-compose-plugin
     echo dotfiles: Configuring Docker permissions
     sudo groupadd docker
@@ -77,8 +77,8 @@ if ! command -v brave-browser &> /dev/null
 then
     sudo apt-get -q -y install --no-install-recommends apt-transport-https curl
     sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-    sudo apt-get update
+    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list > /dev/null
+    sudo apt-get -qq update
     sudo apt-get -q -y install --no-install-recommends brave-browser
 else
     echo dotfiles: Brave is already installed

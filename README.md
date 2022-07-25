@@ -1,5 +1,30 @@
 # dslatkin/dotfiles
 
+<!--
+Todos
+
+Use `dialog` apt package to give ncurses widgets in bash scripts so that
+we can prompt non-me people (I don't know how else to say that lol) for
+things like chezmoi template data info, packages to install or skip, etc.
+Good guide here:
+
+    https://linuxconfig.org/how-to-use-ncurses-widgets-in-shell-scripts-on-linux
+
+Set up install script that bootstraps system with chezmoi and does first
+chezmoi apply
+
+-   Use `dialog` package above
+-   [VS Code dev containers](https://www.chezmoi.io/user-guide/machines/containers-and-vms/)
+
+Explore or install these packages:
+
+-   [nu shell](https://nushell.sh)
+-   [Windows via winget](https://github.com/twpayne/chezmoi/issues/812)
+-   [homebrew bundle](https://github.com/Homebrew/homebrew-bundle)
+-   [Debian unattended upgrades](https://wiki.debian.org/UnattendedUpgrades) for updating debian packages
+
+-->
+
 ## Installation
 
 Linux:
@@ -58,11 +83,3 @@ by default. To fix this, add this setting to revert that:
 }
 ```
 -->
-
-## Todos
-
-- [nu shell](https://nushell.sh)
-- [VS Code dev containers](https://www.chezmoi.io/user-guide/machines/containers-and-vms/)
-- [Windows via winget](https://github.com/twpayne/chezmoi/issues/812)
-- [homebrew bundle](https://github.com/Homebrew/homebrew-bundle)
-- [Debian unattended upgrades](https://wiki.debian.org/UnattendedUpgrades) for updating debian packages

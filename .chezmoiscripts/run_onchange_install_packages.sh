@@ -11,6 +11,10 @@ export DEBIAN_FRONTEND=noninteractive
 export DEBIAN_PRIORITY=critical
 sudo apt-get update
 
+# Install CLI packages
+sudo apt-get -y install --no-install-recommends \
+    glances
+
 # Install VS Code (Debian; for Mac, use brew cask)
 if ! command -v code &> /dev/null
 then

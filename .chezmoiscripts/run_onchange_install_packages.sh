@@ -86,4 +86,3 @@ then
 else
     echo dotfiles: Brave is already installed
 fi
-

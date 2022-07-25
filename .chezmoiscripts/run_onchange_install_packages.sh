@@ -1,14 +1,15 @@
 #!/bin/bash
 echo dotfiles: "$0"
 
-# Exit on error
+echo dotfiles: Configuring install script
 set -o errexit
-
-# Prep package installations
 export HOMEBREW_NO_ENV_HINTS=true
 export HOMEBREW_NO_INSTALL_UPGRADE=true
 export DEBIAN_FRONTEND=noninteractive
 export DEBIAN_PRIORITY=critical
+
+echo dotfiles: Updating packages
+brew update --quiet
 sudo apt-get update
 
 # Install VS Code (Debian; for Mac, use brew cask)

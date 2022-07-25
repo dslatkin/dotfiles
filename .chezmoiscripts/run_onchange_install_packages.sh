@@ -86,3 +86,18 @@ then
 else
     echo dotfiles: Brave is already installed
 fi
+
+# Install 1Password CLI (Debian)
+if ! command -v 1password &> /dev/null
+then
+    curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+    echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list > /dev/null
+    sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
+    curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol > /dev/null
+    sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
+    curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+    echo DEBIAN_PRIORITY IS $DEBIAN_PRIORITY
+    sudo apt-get -y install --no-install-recommends 1password
+else
+    echo dotfiles: 1password CLI is already installed
+fi

@@ -68,7 +68,7 @@ else
     echo dotfiles: Docker is already installed
 fi
 
-# Install Brave for a Chromium browser experience
+# Install Brave for a Chromium browser experience (Debian)
 #
 # Note: Dragging is slow on Pop_OS!
 # https://www.reddit.com/r/pop_os/comments/f3s4c4/comment/fhp70xs

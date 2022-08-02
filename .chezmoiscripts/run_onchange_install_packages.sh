@@ -19,6 +19,16 @@ sudo apt-get -qq update
 # same flags like `-q`, `-y`, etc. Alternatively, we could create a bash utility
 # function for installing packages by name.
 
+# Install VLC (Debian; for Mac, use brew cask)
+if ! command -v vlc &> /dev/null
+then
+    echo dotfiles: Installing VLC Player
+    sudo apt-get -q -y install --no-install-recommends vlc
+    vlc --version
+else
+    echo dotfiles: VLC is already installed
+fi
+
 # Install VS Code (Debian; for Mac, use brew cask)
 if ! command -v code &> /dev/null
 then

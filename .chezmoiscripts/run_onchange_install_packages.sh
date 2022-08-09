@@ -5,6 +5,7 @@ echo dotfiles: Configuring install script
 set -o errexit
 export HOMEBREW_NO_ENV_HINTS=true
 export HOMEBREW_NO_INSTALL_UPGRADE=true
+export HOMEBREW_NO_ANALYTICS=true
 export DEBIAN_FRONTEND=noninteractive
 export DEBIAN_PRIORITY=critical
 

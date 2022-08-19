@@ -23,6 +23,15 @@ Explore or install these packages:
 -   [homebrew bundle](https://github.com/Homebrew/homebrew-bundle)
 -   [Debian unattended upgrades](https://wiki.debian.org/UnattendedUpgrades) for updating debian packages
 
+Set up nice aliases and functions for frequently used things
+
+-   Some of these specific to git are already in gitconfig
+-   Should have alias and shell function script files which get copied to a
+    hidden home directory, then `source`ed or something into `.bashrc`, etc.
+-   Useful functions I should write:
+    -   Check if in bash login vs. interactive shell 
+        https://unix.stackexchange.com/a/26782/496182
+
 -->
 
 ## Installation

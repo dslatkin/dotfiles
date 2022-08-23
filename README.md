@@ -32,6 +32,10 @@ Set up nice aliases and functions for frequently used things
     -   Check if in bash login vs. interactive shell 
         https://unix.stackexchange.com/a/26782/496182
 
+Set up git autocomplete
+
+    https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
+
 -->
 
 ## Installation

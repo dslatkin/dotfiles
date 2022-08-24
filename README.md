@@ -47,8 +47,8 @@ Linux:
    - Reapply `.profile` which runs on login shell inits by either
      restarting your computer or re-runing it with `~/. .profile`
 3. `brew install chezmoi`
-   - Chezmoi for dotfile manage
-   - Age for encryption of dotfiles
+   - Chezmoi for dotfile management
+   - Age for encryption of secrets
 4. `chezmoi init dslatkin/dotfiles --apply`
 
 VS Code Settings:

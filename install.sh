@@ -22,4 +22,3 @@ fi
 
 # Init 
 chezmoi init dslatkin/dotfiles --apply
-

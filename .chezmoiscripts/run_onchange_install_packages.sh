@@ -4,13 +4,14 @@ echo dotfiles: "$0"
 set -o errexit
 
 export HOMEBREW_NO_ENV_HINTS=true
-export HOMEBREW_NO_INSTALL_UPGRADE=true
 export HOMEBREW_NO_ANALYTICS=true
 export DEBIAN_FRONTEND=noninteractive
 export DEBIAN_PRIORITY=critical
 
 brew update --quiet
+brew upgrade --quiet
 sudo apt-get -qq update
+sudo apt-get -qq upgrade
 
 # Install VLC (Debian; for Mac, use brew cask)
 if ! command -v vlc &> /dev/null

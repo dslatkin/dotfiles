@@ -1,24 +1,16 @@
 #!/bin/bash
 echo dotfiles: "$0"
 
-echo dotfiles: Configuring install script
 set -o errexit
+
 export HOMEBREW_NO_ENV_HINTS=true
 export HOMEBREW_NO_INSTALL_UPGRADE=true
 export HOMEBREW_NO_ANALYTICS=true
 export DEBIAN_FRONTEND=noninteractive
 export DEBIAN_PRIORITY=critical
 
-echo dotfiles: Updating packages
 brew update --quiet
 sudo apt-get -qq update
-
-# Todo: apt install belows should be more DRY-like
-#
-# According to apt-get's man pages, we can set an apt config file with
-# the APT_CONFIG variable for `apt-get` so we don't have to constantly  run the
-# same flags like `-q`, `-y`, etc. Alternatively, we could create a bash utility
-# function for installing packages by name.
 
 # Install VLC (Debian; for Mac, use brew cask)
 if ! command -v vlc &> /dev/null

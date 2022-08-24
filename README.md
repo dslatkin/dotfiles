@@ -42,14 +42,8 @@ Set up git autocomplete
 
 Linux:
 
-1. Install [brew](https://brew.sh)
-2. Modify `.profile` to add `brew` to `$PATH`
-   - Reapply `.profile` which runs on login shell inits by either
-     restarting your computer or re-runing it with `~/. .profile`
-3. `brew install chezmoi`
-   - Chezmoi for dotfile management
-   - Age for encryption of secrets
-4. `chezmoi init dslatkin/dotfiles --apply`
+1. Run the install script `./install.sh`
+2. Start a new shell with changes `exec bash`
 
 VS Code Settings:
 

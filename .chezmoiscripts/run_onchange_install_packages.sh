@@ -59,7 +59,7 @@ else
     echo dotfiles: Fira Code is already installed
 fi
 
-# Install Starship (Debian)
+# Install Starship (Debian, but could also work on Mac - not sure if `/dev/null` exists)
 if ! command -v starship &> /dev/null
 then
     echo dotfiles: Installing Starship

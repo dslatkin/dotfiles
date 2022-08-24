@@ -116,3 +116,13 @@ then
 else
     echo dotfiles: 1password CLI is already installed
 fi
+
+# Install nushell (brew)
+if ! command -v nu &> /dev/null
+then
+    echo dotfiles: Installing Nushell
+    brew install --quiet nushell
+    nu --version
+else
+    echo dotfiles: Nushell is already installed
+fi

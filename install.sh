@@ -18,7 +18,7 @@ fi
 
 # Init
 echo 'if [ -f ~/.chezmoi.bashrc ]; then
-	source ~/.chezmoi.bashrc"
+	source ~/.chezmoi.bashrc
 fi' >> ~/.bashrc
 chezmoi init dslatkin/dotfiles --apply
 source ~/.bashrc

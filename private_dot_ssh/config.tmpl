@@ -1,5 +1,0 @@
-Host *
-  {{ if eq .chezmoi.os "darwin" -}}
-  # Use ssh-agent using Apple keychain on startup, avoids `ssh-add --apple-use-keychain`
-  UseKeychain yes
-  {{ end -}}

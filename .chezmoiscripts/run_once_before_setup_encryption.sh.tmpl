@@ -11,7 +11,7 @@ else
     echo dotfiles: Age is already installed
 fi
 
-if [ ! -f "${HOME}/.chezmoi.key" ]; then
-    age --decrypt --output "${HOME}/.chezmoi.key" "{{ .chezmoi.sourceDir }}/.chezmoi.key.age"
-    chmod 600 "${HOME}/.chezmoi.key"
+if [ ! -f ~/.chezmoi.key ]; then
+    age --decrypt --output ~/.chezmoi.key "{{ .chezmoi.sourceDir }}/.chezmoi.key.age"
+    chmod 600 ~/.chezmoi.key
 fi

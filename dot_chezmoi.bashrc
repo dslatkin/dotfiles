@@ -1,3 +1,6 @@
+# Chezmoi completions
+eval "$(chezmoi completion bash)"
+
 # Brew completions
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 if type brew &>/dev/null

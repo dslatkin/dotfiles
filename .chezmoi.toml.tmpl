@@ -1,3 +1,6 @@
+{{ $name := promptString "Name" -}}
+{{ $email := promptString "Email" -}}
+
 encryption = "age"
 [age]
     identity = "~/.chezmoi.key"
@@ -5,3 +8,6 @@ encryption = "age"
 [edit]
     command = "code"
     args = "--wait"
+[data]
+    name = {{ $name | quote }}
+    email = {{ $email | quote }}

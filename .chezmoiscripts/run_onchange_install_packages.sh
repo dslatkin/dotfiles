@@ -41,10 +41,13 @@ fi
 
 # Install FiraCode font variant (Pop_OS!)
 font_source='https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf'
-font_target="$HOME/.local/share/fonts/Fira Code Regular Nerd Font Complete.ttf"
+font_filename="Fira Code Regular Nerd Font Complete.ttf"
+font_directory="~/.local/share/fonts/"
+font_target="$font_directory/$font_filename"
 if ! [[ -f $font_target ]]
 then
     echo 'dotfiles: Installing Fira Code from Nerd Fonts'
+    mkdir -p "$font_directory"
     curl --fail --silent --show-error --location $font_source > "$font_target"
     echo "⚠️ You may need to configure VS Code's font family to use Fira Code:"
     fc-list | grep "$font_target"

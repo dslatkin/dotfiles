@@ -128,3 +128,13 @@ then
 else
     echo dotfiles: Nushell is already installed
 fi
+
+# Install byobu (Debian)
+if ! command -v byobu &> /dev/null
+then
+    echo dotfiles: Installing Byobu
+    sudo apt-get -q -y install --no-install-recommends byobu
+    byobu --version
+else
+    echo dotfiles: Byobu is already installed
+fi

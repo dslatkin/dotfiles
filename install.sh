@@ -11,7 +11,7 @@ then
 fi
 
 # Install chezmoi (Linux brew)
-if ! command -v brew &> /dev/null
+if ! command -v chezmoi &> /dev/null
 then
     brew install chezmoi
 fi

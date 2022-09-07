@@ -5,7 +5,7 @@ mcd () {
   mkdir "$1" && cd "$1" || exit
 }
 rfr () {
-  rm -fr $*
+  rm -fr "$*"
 }
 
 # Chezmoi completions

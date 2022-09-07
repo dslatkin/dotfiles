@@ -42,7 +42,7 @@ fi
 # Install FiraCode font variant (Pop_OS!)
 font_source='https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf'
 font_filename="Fira Code Regular Nerd Font Complete.ttf"
-font_directory="~/.local/share/fonts/"
+font_directory="$HOME/.local/share/fonts/"
 font_target="$font_directory/$font_filename"
 if ! [[ -f $font_target ]]
 then

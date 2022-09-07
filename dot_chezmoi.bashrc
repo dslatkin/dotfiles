@@ -1,3 +1,11 @@
+# Functions
+mcd () {
+  mkdir "$1" && cd "$1"
+}
+rfr () {
+  rm -fr $*
+}
+
 # Chezmoi completions
 eval "$(chezmoi completion bash)"
 

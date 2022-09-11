@@ -61,6 +61,11 @@ VS Code Settings:
 }
 ```
 
+Note: There's a dev container as a record of general deps and suggested settings
+to maintain this repo, but typically I don't do this work in a dev container
+since the use of the dotfiles themselves take care of any machine-to-machine
+differences.
+
 <!--
 ### Dev containers
 

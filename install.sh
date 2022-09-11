@@ -1,8 +1,6 @@
 #!/bin/bash
-echo dotfiles: "$0"
-
-echo dotfiles: Configuring install script
-set -o errexit
+echo "dotfiles: $0"
+set -eu pipefail
 
 # Install brew (Linux)
 if ! command -v brew &> /dev/null
@@ -21,4 +19,4 @@ echo 'if [ -f ~/.chezmoi/bashrc.sh ]; then
 	source ~/.chezmoi/bashrc.sh
 fi' >> ~/.bashrc
 chezmoi init dslatkin/dotfiles --apply
-source ~/.bashrc
+echo "dotfilesd: Run \"exec bash\" to get your shell changes"

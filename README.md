@@ -3,6 +3,8 @@
 <!--
 Todos
 
+https://github.com/lucasresck/gnome-shell-extension-alt-tab-scroll-workaround
+
 Use `dialog` apt package to give ncurses widgets in bash scripts so that
 we can prompt non-me people (I don't know how else to say that lol) for
 things like chezmoi template data info, packages to install or skip, etc.

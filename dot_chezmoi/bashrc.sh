@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Aliases
+alias cz=chezmoi
+
 # Functions
 mcd () {
   mkdir "$1" && cd "$1" || exit

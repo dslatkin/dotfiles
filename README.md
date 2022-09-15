@@ -50,6 +50,7 @@ Linux:
 
 1. Run the install script `./install.sh`
 2. Start a new shell with changes `exec bash`
+3. `chezmoi edit-config` to customize machine-specific settings
 
 VS Code Settings:
 

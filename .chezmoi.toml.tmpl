@@ -1,5 +1,21 @@
-{{ $name := promptString "Name" -}}
-{{ $email := promptString "Email" -}}
+{{- /*https://github.com/twpayne/chezmoi/discussions/2114#discussioncomment-2887508*/ -}}
+
+{{- $name                    := promptStringOnce . "name"                    "Name for git commits"           -}}
+{{- $includePersonalSettings := promptBoolOnce   . "includePersonalSettings" "Include personal settings" true -}}
+{{- $includeWorkSettings     := promptBoolOnce   . "includeWorkSettings"     "Include work settings"     true -}}
+
+{{- /* - $packages := list "alpha" "beta" "gamma" */ -}}
+{{- /* - $packages | quoteList | join ", " | cat "qqq" | cat "xxx" "yyy" | writeToStdout "a" "b" "c" - */ -}}
+
+{{- $isLinux := eq .chezmoi.os "linux" -}}
+{{- $isDebian := false -}}
+{{- $isUbuntu := false -}}
+{{- $isPop := false -}}
+{{- if hasKey .chezmoi "osRelease" -}}
+{{-   $isDebian = or (eq .chezmoi.osRelease.id "debian") (regexMatch "\\bdebian\\b" .chezmoi.osRelease.idLike) -}}
+{{-   $isUbuntu = or (eq .chezmoi.osRelease.id "ubuntu") (regexMatch "\\bubuntu\\b" .chezmoi.osRelease.idLike) -}}
+{{-   $isPop    = or (eq .chezmoi.osRelease.id "pop"   ) (regexMatch "\\bpop\\b"    .chezmoi.osRelease.idLike) -}}
+{{- end -}}
 
 encryption = "age"
 [age]
@@ -10,4 +26,10 @@ encryption = "age"
     args = "--wait"
 [data]
     name = {{ $name | quote }}
-    email = {{ $email | quote }}
+    isLinux = {{ $isLinux }}
+    isDebian = {{ $isDebian }}
+    isUbuntu = {{ $isUbuntu }}
+    includePersonalSettings = {{ $includePersonalSettings }}
+    includeWorkSettings = {{ $includeWorkSettings }}
+    installAiTooling = {{ $includePersonalSettings }}
+{{ writeToStdout "✅ Config file generated at " .chezmoi.configFile "\n" -}}

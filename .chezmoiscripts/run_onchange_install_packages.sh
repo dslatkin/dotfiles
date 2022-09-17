@@ -102,7 +102,7 @@ else
     echo dotfiles: Brave is already installed
 fi
 
-# Install 1Password CLI (Debian)
+# Install 1Password desktop app and CLI (Debian)
 if ! command -v op &> /dev/null
 then
     curl -sS https://downloads.1password.com/linux/keys/1password.asc | \
@@ -119,7 +119,7 @@ then
         sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
 
     sudo apt-get -qq update
-    sudo apt-get -q -y install --no-install-recommends 1password-cli
+    sudo apt-get -q -y install --no-install-recommends 1password 1password-cli
     op --version
 else
     echo dotfiles: 1password CLI is already installed

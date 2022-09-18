@@ -103,8 +103,10 @@ else
 fi
 
 # Install 1Password desktop app and CLI (Debian)
-if ! command -v op &> /dev/null
+if ! command -v 1password &> /dev/null || ! command -v op &> /dev/null
 then
+    echo dotfiles: Installing 1Password desktop app and CLI
+
     curl -sS https://downloads.1password.com/linux/keys/1password.asc | \
         sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/$(dpkg --print-architecture) stable main" | \
@@ -121,8 +123,6 @@ then
     sudo apt-get -qq update
     sudo apt-get -q -y install --no-install-recommends 1password 1password-cli
     op --version
-else
-    echo dotfiles: 1password CLI is already installed
 fi
 
 # Install nushell (brew)

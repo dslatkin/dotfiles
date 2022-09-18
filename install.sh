@@ -15,8 +15,8 @@ then
 fi
 
 # Init
-echo 'if [ -f ~/.chezmoi/bashrc.sh ]; then
-	source ~/.chezmoi/bashrc.sh
+echo 'if [ -f ~/.dotfiles/bashrc.sh ]; then
+	source ~/.dotfiles/bashrc.sh
 fi' >> ~/.bashrc
 chezmoi init dslatkin/dotfiles --apply
 echo "dotfilesd: Run \"exec bash\" to get your shell changes"

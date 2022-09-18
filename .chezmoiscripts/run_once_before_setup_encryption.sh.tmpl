@@ -11,7 +11,7 @@ else
     echo dotfiles: Age is already installed
 fi
 
-decrypted_identity=~/.chezmoi/identity.key
+decrypted_identity=~/.dotfiles/identity.key
 if [ ! -f "$decrypted_identity" ]; then
     age --decrypt --output "$decrypted_identity" "{{ .chezmoi.sourceDir }}/dot_chezmoi/identity.key.age"
     chmod 600 "$decrypted_identity"

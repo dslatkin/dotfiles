@@ -1,9 +1,4 @@
 {{- /*https://github.com/twpayne/chezmoi/discussions/2114#discussioncomment-2887508*/ -}}
-
-{{- $name                    := promptStringOnce . "name"                    "Name for git commits"           -}}
-{{- $includePersonalSettings := promptBoolOnce   . "includePersonalSettings" "Include personal settings" true -}}
-{{- $includeWorkSettings     := promptBoolOnce   . "includeWorkSettings"     "Include work settings"     true -}}
-
 {{- /* - $packages := list "alpha" "beta" "gamma" */ -}}
 {{- /* - $packages | quoteList | join ", " | cat "qqq" | cat "xxx" "yyy" | writeToStdout "a" "b" "c" - */ -}}
 
@@ -26,12 +21,12 @@ encryption = "age"
     command = "code"
     args = "--wait"
 [data]
-    name = {{ $name | quote }}
     isLinux = {{ $isLinux }}
     isDebian = {{ $isDebian }}
     isUbuntu = {{ $isUbuntu }}
-    includePersonalSettings = {{ $includePersonalSettings }}
-    includeWorkSettings = {{ $includeWorkSettings }}
-    installAiTooling = {{ $includePersonalSettings }}
     isMac = {{ $isMac }}
-{{ writeToStdout "✅ Config file generated at " .chezmoi.configFile "\n" -}}
+    name = {{ promptStringOnce . "name" "Name for git commits" | quote }}
+    includePersonalSettings = {{ promptBoolOnce . "includePersonalSettings" "Include personal settings" true }}
+    includeWorkSettings = {{ promptBoolOnce . "includeWorkSettings" "Include work settings" true }}
+    installAiTooling = {{ promptBoolOnce . "installAiTooling" "Include AI tooling" true }}
+{{ writeToStdout "Config file generated at " .chezmoi.configFile "\n" -}}

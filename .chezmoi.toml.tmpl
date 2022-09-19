@@ -16,6 +16,7 @@
 {{-   $isUbuntu = or (eq .chezmoi.osRelease.id "ubuntu") (regexMatch "\\bubuntu\\b" .chezmoi.osRelease.idLike) -}}
 {{-   $isPop    = or (eq .chezmoi.osRelease.id "pop"   ) (regexMatch "\\bpop\\b"    .chezmoi.osRelease.idLike) -}}
 {{- end -}}
+{{- $isMac := eq .chezmoi.os "darwin" -}}
 
 encryption = "age"
 [age]
@@ -32,4 +33,5 @@ encryption = "age"
     includePersonalSettings = {{ $includePersonalSettings }}
     includeWorkSettings = {{ $includeWorkSettings }}
     installAiTooling = {{ $includePersonalSettings }}
+    isMac = {{ $isMac }}
 {{ writeToStdout "✅ Config file generated at " .chezmoi.configFile "\n" -}}

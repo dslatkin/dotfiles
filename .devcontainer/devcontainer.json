@@ -9,12 +9,6 @@
 		"args": { "VARIANT": "ubuntu-22.04" }
 	},
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"shellcheck.customArgs": ["-x"] // allows shellcheck to handle `source <file_path>`
-	},
-
-
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"timonwong.shellcheck",

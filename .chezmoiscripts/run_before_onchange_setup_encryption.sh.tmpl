@@ -1,3 +1,4 @@
+{{ if or .env.mac .env.debian -}}
 #!/bin/bash
 echo "dotfiles: $0"
 
@@ -5,15 +6,17 @@ echo "dotfiles: $0"
 if ! command -v age &> /dev/null
 then
     echo "dotfiles: Installing age"
-    sudo apt-get -y install --no-install-recommends age
+    brew install age
 else
     echo "dotfiles: Age is already installed"
 fi
 
-decrypted_identity=~/.dotfiles/identity.key
-if [ ! -f "$decrypted_identity" ]; then
-    age --decrypt --output "$decrypted_identity" "{{ .chezmoi.sourceDir }}/dot_chezmoi/identity.key.age"
-    chmod 600 "$decrypted_identity"
+if [ ! -f "~/.dotfiles/identity.key" ]; then
+    mkdir -p ~/.dotfiles/
+    age --decrypt --output "$decrypted_identity" "{{ .chezmoi.sourceDir 
+}}/dot_dotfiles/identity.key.age"
+    chmod 600 ~/.dotfiles/identity.key
 else
     echo "dotfiles: Chezmoi secret already decrypted"
 fi
+{{ end }}

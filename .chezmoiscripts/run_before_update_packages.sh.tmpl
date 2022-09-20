@@ -1,0 +1,20 @@
+#!/bin/bash
+echo "dotfiles: $0"
+
+set -euo pipefail
+
+{{ if or .env.mac .env.debian -}}
+echo "dotfiles: Upgrading homebrew packages..."
+export HOMEBREW_NO_ENV_HINTS=true
+export HOMEBREW_NO_ANALYTICS=true
+brew update --quiet
+brew upgrade --quiet
+{{ end -}}
+
+{{ if .env.debian -}}
+echo "dotfiles: Upgrading Debian apt packages..."
+sudo apt-get -qq update
+sudo apt-get -qq upgrade
+export DEBIAN_FRONTEND=noninteractive
+export DEBIAN_PRIORITY=critical
+{{ end -}}

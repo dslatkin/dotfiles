@@ -1,0 +1,6 @@
+{{ if .env.ubuntu -}
+#!/bin/bash
+echo "dotfiles: $0"
+
+gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close"
+{{end -}}

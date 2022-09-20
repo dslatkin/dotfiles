@@ -1,29 +1,8 @@
+{{ if .env.debian -}}
 #!/bin/bash
-echo dotfiles: "$0"
+echo "dotfiles: $0"
 
-set -o errexit
-
-export HOMEBREW_NO_ENV_HINTS=true
-export HOMEBREW_NO_ANALYTICS=true
-export DEBIAN_FRONTEND=noninteractive
-export DEBIAN_PRIORITY=critical
-
-brew update --quiet
-brew upgrade --quiet
-sudo apt-get -qq update
-sudo apt-get -qq upgrade
-
-# Install VLC (Debian; for Mac, use brew cask)
-if ! command -v vlc &> /dev/null
-then
-    echo "dotfiles: Installing VLC Player"
-    sudo apt-get -q -y install --no-install-recommends vlc
-    vlc --version
-else
-    echo "dotfiles: VLC is already installed"
-fi
-
-# Install VS Code (Debian; for Mac, use brew cask)
+# todo: For Mac, use brew cask
 if ! command -v code &> /dev/null
 then
     echo "dotfiles: Installing VS Code"
@@ -188,3 +167,4 @@ then
 else
     echo "dotfiles: Conda is already installed"
 fi
+{{ end -}}

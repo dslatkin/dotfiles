@@ -1,0 +1,47 @@
+{{ if .env.debian -}}
+#!/bin/bash
+echo "dotfiles: $0"
+
+# Install stable diffusion deps (Debian)
+# https://www.assemblyai.com/blog/how-to-run-stable-diffusion-locally-to-generate-images/
+#
+# After install, to run models:
+#
+# git clone https://github.com/CompVis/stable-diffusion.git
+# cd stable-diffusion/
+# conda env create -f environment.yaml
+# conda activate ldm
+# curl https://www.googleapis.com/storage/v1/b/aai-blog-files/o/sd-v1-4.ckpt?alt=media > sd-v1-4.ckpt
+# python scripts/txt2img.py --prompt "cowboy riding a unicorn over a rainbow" --plms --ckpt sd-v1-4.ckpt --skip_grid --n_samples 1
+if ! command -v python3 &> /dev/null
+then
+    echo "dotfiles: Installing Python"
+    sudo apt-get -q -y install --no-install-recommends python3
+    python3 --version
+else
+    echo "dotfiles: Python is already installed"
+fi
+if ! command -v conda &> /dev/null
+then
+    echo "dotfiles: Installing conda"
+
+    curl -sS https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc | \
+        sudo gpg --dearmor --output /usr/share/keyrings/conda-archive-keyring.gpg
+    gpg --keyring /usr/share/keyrings/conda-archive-keyring.gpg --no-default-keyring --fingerprint 34161F5BF5EB1D4BFBBB8F0A8AEB4F8B29D82806
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/conda-archive-keyring.gpg] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main" | \
+        sudo tee /etc/apt/sources.list.d/conda.list > /dev/null
+
+    sudo apt-get -qq update
+    sudo apt-get -q -y install --no-install-recommends conda
+
+    source /opt/conda/etc/profile.d/conda.sh
+    conda init bash
+    
+    # todo: needs testing
+    conda update --yes --verbose --name base --channel defaults conda
+
+    conda --version
+else
+    echo "dotfiles: Conda is already installed"
+fi
+{{ end -}}

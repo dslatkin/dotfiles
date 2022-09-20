@@ -1,12 +1,11 @@
 {{ if .env.debian -}}
 #!/bin/bash
-echo "dotfiles: $0"
 set -euo pipefail
 
 # todo: For Mac, use brew cask
 if ! command -v code &> /dev/null
 then
-    echo "dotfiles: Installing VS Code"
+    echo "dotfiles: Installing VS Code..."
     sudo apt-get -q -y install --no-install-recommends wget gpg
     wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
     sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/

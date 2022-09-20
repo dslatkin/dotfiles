@@ -1,11 +1,10 @@
 {{ if .env.debian -}}
 #!/bin/bash
-echo "dotfiles: $0"
 set -euo pipefail
 
 if ! command -v byobu &> /dev/null
 then
-    echo "dotfiles: Installing Byobu"
+    echo "dotfiles: Installing Byobu..."
     sudo apt-get -q -y install --no-install-recommends byobu
     byobu --version
 else

@@ -1,12 +1,11 @@
 {{ if .env.debian -}}
 #!/bin/bash
-echo "dotfiles: $0"
 set -euo pipefail
 
 # todo: May also work on Mac; not sure if `/dev/null` exists
 if ! command -v starship &> /dev/null
 then
-    echo "dotfiles: Installing Starship"
+    echo "dotfiles: Installing Starship..."
     brew install --quiet starship
     eval "$(starship init bash)"
     eval "$(starship completions bash)"

@@ -1,14 +1,13 @@
 {{ if .env.debian -}}
 #!/bin/bash
-echo "dotfiles: $0"
 set -euo pipefail
 
 if ! command -v vlc &> /dev/null
 then
-    echo "dotfiles: Installing VLC Player"
+    echo "dotfiles: Installing VLC Player..."
     sudo apt-get -q -y install --no-install-recommends vlc
     vlc --version
 else
-    echo "dotfiles: VLC is already installed"
+    echo "dotfiles: VLC Player is already installed"
 fi
 {{ end -}}

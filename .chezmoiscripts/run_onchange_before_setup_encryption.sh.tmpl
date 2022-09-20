@@ -1,24 +1,24 @@
 {{ if or .env.mac .env.debian -}}
 #!/bin/bash
-echo "dotfiles: $0"
 set -euo pipefail
 
 # Install age for Debian to be used for dotfile encryption
 if ! command -v age &> /dev/null
 then
-    echo "dotfiles: Installing age"
+    echo "dotfiles: Installing age..."
     brew install age
 else
     echo "dotfiles: Age is already installed"
 fi
 
 if [ ! -f ~/.dotfiles/identity.key ]; then
+    echo "dotfiles: Installing age private key..."
     mkdir -p ~/.dotfiles/
     age --decrypt \
         --output ~/.dotfiles/identity.key \
         "{{ .chezmoi.sourceDir }}/dot_dotfiles/identity.key.age"
     chmod 600 ~/.dotfiles/identity.key
 else
-    echo "dotfiles: Chezmoi secret already decrypted"
+    echo "dotfiles: Age private key is already installed"
 fi
 {{ end }}

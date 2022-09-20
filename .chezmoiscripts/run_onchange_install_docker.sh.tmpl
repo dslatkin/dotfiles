@@ -1,11 +1,10 @@
 {{ if .env.ubuntu -}}
 #!/bin/bash
-echo "dotfiles: $0"
 set -euo pipefail
 
 if ! command -v docker &> /dev/null
 then
-    echo "dotfiles: Installing Docker engine"
+    echo "dotfiles: Installing Docker engine..."
     sudo apt-get -q -y install --no-install-recommends ca-certificates curl gnupg lsb-release
     sudo mkdir -p /etc/apt/keyrings
     curl --fail --silent --show-error --location=https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg

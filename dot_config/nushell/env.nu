@@ -1,4 +1,5 @@
 # Nushell Environment Config File
+# Can be regenerated with `config env` in nu
 
 def create_left_prompt [] {
     let path_segment = if (is-admin) {

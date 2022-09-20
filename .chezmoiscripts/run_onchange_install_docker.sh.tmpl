@@ -1,6 +1,7 @@
 {{ if .env.ubuntu -}}
 #!/bin/bash
 echo "dotfiles: $0"
+set -euo pipefail
 
 if ! command -v docker &> /dev/null
 then

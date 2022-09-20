@@ -1,6 +1,7 @@
 {{ if .env.debian -}}
 #!/bin/bash
 echo "dotfiles: $0"
+set -euo pipefail
 
 # Install Brave for a Chromium browser experience
 #

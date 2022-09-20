@@ -1,6 +1,7 @@
 {{ if .env.pop -}}
 #!/bin/bash
 echo "dotfiles: $0"
+set -euo pipefail
 
 font_source='https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf'
 font_filename="Fira Code Regular Nerd Font Complete.ttf"

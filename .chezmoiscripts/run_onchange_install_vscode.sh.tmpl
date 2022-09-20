@@ -1,6 +1,7 @@
 {{ if .env.debian -}}
 #!/bin/bash
 echo "dotfiles: $0"
+set -euo pipefail
 
 # todo: For Mac, use brew cask
 if ! command -v code &> /dev/null

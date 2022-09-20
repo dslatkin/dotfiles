@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Aliases
 alias cz=chezmoi

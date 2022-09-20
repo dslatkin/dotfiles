@@ -1,3 +1,10 @@
 {
+    "files.associations": {
+		"*.toml.tmpl": "toml",
+		"*.sh.tmpl": "shellscript",
+	},
+	// "shellcheck.ignorePatterns": {
+	// 	"**/*.*.tmpl": true
+	// },
     "shellcheck.customArgs": ["-x"] // allows shellcheck to handle `source <file_path>`
 }

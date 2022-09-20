@@ -1,5 +1,5 @@
 # Nushell Environment Config File
-# Can be regenerated with `config env` in nu
+# Samples: https://github.com/nushell/nushell/tree/main/crates/nu-utils/src/sample_config
 
 def create_left_prompt [] {
     let path_segment = if (is-admin) {

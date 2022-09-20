@@ -1,5 +1,5 @@
 # Nushell Config File
-# Can be regenerated with `config nu` in nu
+# https://github.com/nushell/nushell/tree/main/crates/nu-utils/src/sample_config
 
 module completions {
   # Custom completions for external commands (those outside of Nushell)

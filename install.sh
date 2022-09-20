@@ -15,11 +15,13 @@ then
 fi
 
 # Init bash
+# todo: Have this create the runtime config if needed
 echo 'if [ -f ~/.dotfiles/bashrc.sh ]; then
 	source ~/.dotfiles/bashrc.sh
 fi' >> ~/.bashrc
 
 # Init zsh
+# todo: Have this create the runtime config if needed
 echo 'if [ -f ~/.dotfiles/zshrc.sh ]; then
 	source ~/.dotfiles/zshrc.sh
 fi' >> ~/.zshrc

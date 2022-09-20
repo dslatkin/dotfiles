@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "dotfiles: $0"
-set -eu pipefail
+set -euo pipefail
 
 # Install brew (Linux)
 if ! command -v brew &> /dev/null

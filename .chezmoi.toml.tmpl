@@ -2,17 +2,8 @@
 {{- /* - $packages := list "alpha" "beta" "gamma" */ -}}
 {{- /* - $packages | quoteList | join ", " | cat "qqq" | cat "xxx" "yyy" | writeToStdout "a" "b" "c" - */ -}}
 
-{{- $isLinux := eq .chezmoi.os "linux" -}}
-{{- $isDebian := false -}}
-{{- $isUbuntu := false -}}
-{{- $isPop := false -}}
-{{- if hasKey .chezmoi "osRelease" -}}
-{{-   $isDebian = or (eq .chezmoi.osRelease.id "debian") (regexMatch "\\bdebian\\b" .chezmoi.osRelease.idLike) -}}
-{{-   $isUbuntu = or (eq .chezmoi.osRelease.id "ubuntu") (regexMatch "\\bubuntu\\b" .chezmoi.osRelease.idLike) -}}
-{{-   $isPop    = or (eq .chezmoi.osRelease.id "pop"   ) (regexMatch "\\bpop\\b"    .chezmoi.osRelease.idLike) -}}
-{{- end -}}
-{{- $isMac := eq .chezmoi.os "darwin" -}}
-
+# Note: We can't use camelCase for [data] until chezmoi can fix snake_case:
+# https://www.chezmoi.io/reference/templates/variables/
 encryption = "age"
 [age]
     identity = "~/.dotfiles/identity.key"
@@ -21,12 +12,14 @@ encryption = "age"
     command = "code"
     args = "--wait"
 [data]
-    isLinux = {{ $isLinux }}
-    isDebian = {{ $isDebian }}
-    isUbuntu = {{ $isUbuntu }}
-    isMac = {{ $isMac }}
     name = {{ promptStringOnce . "name" "Name for git commits" | quote }}
-    includePersonalSettings = {{ promptBoolOnce . "includePersonalSettings" "Include personal settings" true }}
-    includeWorkSettings = {{ promptBoolOnce . "includeWorkSettings" "Include work settings" true }}
-    installAiTooling = {{ promptBoolOnce . "installAiTooling" "Include AI tooling" true }}
+    personal = {{ promptBoolOnce . "personal" "Include personal settings" true }}
+    work = {{ promptBoolOnce . "work" "Include work settings" true }}
+[data.install]
+    ai_tooling = {{ promptBoolOnce .install "ai_tooling" "Include AI tooling" true }}
+[data.env]
+    mac = {{ eq .chezmoi.os "darwin" }}
+    linux = {{ eq .chezmoi.os "linux" }}
+    debian = {{ or (eq .chezmoi.osRelease.id "debian") (and (hasKey .chezmoi "osRelease") (hasKey .chezmoi.osRelease "idLike") (regexMatch "\\bdebian\\b" .chezmoi.osRelease.idLike)) }}
+    ubuntu = {{ or (eq .chezmoi.osRelease.id "ubuntu") (and (hasKey .chezmoi "osRelease") (hasKey .chezmoi.osRelease "idLike") (regexMatch "\\bubuntu\\b" .chezmoi.osRelease.idLike)) }}
 {{ writeToStdout "Config file generated at " .chezmoi.configFile "\n" -}}

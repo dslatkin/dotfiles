@@ -19,7 +19,7 @@ set -euo pipefail
 #
 # Note: Dragging is slow on Pop_OS!
 # https://www.reddit.com/r/pop_os/comments/f3s4c4/comment/fhp70xs
-if ! command -v brave-browser &> /dev/null
+if ! command -v brave-browser > /dev/null
 then
     echo "dotfiles: Installing Brave..."
     sudo apt-get -q -y install --no-install-recommends apt-transport-https curl

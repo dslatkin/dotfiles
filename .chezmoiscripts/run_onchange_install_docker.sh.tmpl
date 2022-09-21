@@ -2,7 +2,7 @@
 #!/bin/bash
 set -euo pipefail
 
-if ! command -v docker &> /dev/null
+if ! command -v docker > /dev/null
 then
     echo "dotfiles: Installing Docker engine..."
     sudo apt-get -q -y install --no-install-recommends ca-certificates curl gnupg lsb-release

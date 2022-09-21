@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # todo: May also work on Mac; not sure if `/dev/null` exists
-if ! command -v starship &> /dev/null
+if ! command -v starship > /dev/null
 then
     echo "dotfiles: Installing Starship..."
     brew install --quiet starship

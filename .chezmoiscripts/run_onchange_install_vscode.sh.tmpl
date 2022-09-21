@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # todo: For Mac, use brew cask
-if ! command -v code &> /dev/null
+if ! command -v code > /dev/null
 then
     echo "dotfiles: Installing VS Code..."
     sudo apt-get -q -y install --no-install-recommends wget gpg

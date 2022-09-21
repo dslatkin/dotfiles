@@ -13,7 +13,7 @@ set -euo pipefail
 # conda activate ldm
 # curl https://www.googleapis.com/storage/v1/b/aai-blog-files/o/sd-v1-4.ckpt?alt=media > sd-v1-4.ckpt
 # python scripts/txt2img.py --prompt "cowboy riding a unicorn over a rainbow" --plms --ckpt sd-v1-4.ckpt --skip_grid --n_samples 1
-if ! command -v python3 &> /dev/null
+if ! command -v python3 > /dev/null
 then
     echo "dotfiles: Installing Python..."
     sudo apt-get -q -y install --no-install-recommends python3
@@ -21,7 +21,7 @@ then
 else
     echo "dotfiles: Python is already installed"
 fi
-if ! command -v conda &> /dev/null
+if ! command -v conda > /dev/null
 then
     echo "dotfiles: Installing conda..."
 

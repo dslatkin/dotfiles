@@ -1,3 +1,16 @@
+{{ if .env.mac -}}
+#!/bin/bash
+set -euo pipefail
+
+if ! brew ls -1 brave-browser
+then
+    echo "dotfiles: Installing Brave..."
+    brew install --cask brave-browser
+else
+    echo "dotfiles: Brave is already installed"
+fi
+{{ end -}}
+
 {{ if .env.debian -}}
 #!/bin/bash
 set -euo pipefail

@@ -1,11 +1,11 @@
-{{ if .env.debian -}}
+{{ if or .env.mac .env.debian -}}
 #!/bin/bash
 set -euo pipefail
 
-if ! command -v byobu > /dev/null
+if ! brew ls -1 byobu > /dev/null
 then
-    echo "dotfiles: Installing Byobu..."
-    sudo apt-get -q -y install --no-install-recommends byobu
+    echo "dotfiles: Installing byobu..."
+    brew install byobu
     byobu --version
 else
     echo "dotfiles: Byobu is already installed"

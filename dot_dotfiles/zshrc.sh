@@ -10,3 +10,6 @@ mcd () {
 rfr () {
   rm -fr "$*"
 }
+
+# Chezmoi completions
+eval "$(chezmoi completion zsh)"

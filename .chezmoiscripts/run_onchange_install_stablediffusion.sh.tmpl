@@ -25,11 +25,11 @@ if ! command -v conda > /dev/null
 then
     echo "dotfiles: Installing conda..."
 
-    curl -sS https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc | \
-        sudo gpg --dearmor --output /usr/share/keyrings/conda-archive-keyring.gpg
+    curl --silent --show-error --location https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc \
+        | sudo gpg --dearmor --output /usr/share/keyrings/conda-archive-keyring.gpg
     gpg --keyring /usr/share/keyrings/conda-archive-keyring.gpg --no-default-keyring --fingerprint 34161F5BF5EB1D4BFBBB8F0A8AEB4F8B29D82806
-    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/conda-archive-keyring.gpg] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main" | \
-        sudo tee /etc/apt/sources.list.d/conda.list > /dev/null
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/conda-archive-keyring.gpg] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main" \
+        | sudo tee /etc/apt/sources.list.d/conda.list > /dev/null
 
     sudo apt-get -qq update
     sudo apt-get -q -y install --no-install-recommends conda

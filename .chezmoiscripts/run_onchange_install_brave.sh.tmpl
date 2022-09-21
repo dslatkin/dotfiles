@@ -15,15 +15,12 @@ fi
 #!/bin/bash
 set -euo pipefail
 
-# Install Brave for a Chromium browser experience
-#
-# Note: Dragging is slow on Pop_OS!
-# https://www.reddit.com/r/pop_os/comments/f3s4c4/comment/fhp70xs
 if ! command -v brave-browser > /dev/null
 then
     echo "dotfiles: Installing Brave..."
     sudo apt-get -q -y install --no-install-recommends apt-transport-https curl
-    sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    curl --fail --silent --show-error --location https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg \
+        | sudo tee /usr/share/keyrings/brave-browser-archive-keyring.gpg > /dev/null
     echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list > /dev/null
     sudo apt-get -qq update
     sudo apt-get -q -y install --no-install-recommends brave-browser

@@ -5,6 +5,10 @@ Todos
 
 https://github.com/lucasresck/gnome-shell-extension-alt-tab-scroll-workaround
 
+Configuration
+
+-   Automate debconf https://github.com/phusion/baseimage-docker/issues/58#issuecomment-48032250
+
 Explore or install these packages:
 
 -   [homebrew bundle](https://github.com/Homebrew/homebrew-bundle)

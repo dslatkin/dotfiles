@@ -1,3 +1,31 @@
+{{ if .env.mac -}}
+#!/bin/bash
+set -euo pipefail
+
+# todo: Better test docker and general app/cask installs with this:
+# https://stackoverflow.com/questions/54100496/check-if-an-app-is-installed-on-macos-using-the-terminal
+if ! command -v docker > /dev/null
+then
+    echo "dotfiles: Installing Docker..."
+    echo "Downloading Docker.dmg..."
+    curl --fail --progress-bar \
+        --location https://desktop.docker.com/mac/main/arm64/Docker.dmg \
+        --output ~/Downloads/Docker.dmg
+    echo "Mounting volume..."
+    sudo hdiutil attach ~/Downloads/Docker.dmg
+    echo "Installing..."
+    # todo: Test non-root install using `--user=dslatkin` flag?
+    sudo /Volumes/Docker/Docker.app/Contents/MacOS/install --accept-license
+    echo "Detaching volume..."
+    sudo hdiutil detach /Volumes/Docker
+    # todo: Make sure opening this way works
+    open Docker.app
+    echo "dotfiles: Docker is installed, but needs to be launched to complete setup"
+else
+    echo "dotfiles: Docker is already installed"
+fi
+{{ end -}}
+
 {{ if .env.ubuntu -}}
 #!/bin/bash
 set -euo pipefail

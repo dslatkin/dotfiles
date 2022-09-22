@@ -53,6 +53,8 @@ differences.
 <!--
 ## Terminal colors
 
+Good reference: https://stackoverflow.com/a/28938235/9207275
+
 These lists should work in shell script:
 
 - Reset: \u001b[0m

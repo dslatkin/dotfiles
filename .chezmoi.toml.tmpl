@@ -20,7 +20,7 @@ encryption = "age"
 [data.env]
     mac = {{ eq .chezmoi.os "darwin" }}
     linux = {{ eq .chezmoi.os "linux" }}
-    debian = {{ or (eq .chezmoi.osRelease.id "debian") (and (hasKey .chezmoi "osRelease") (hasKey .chezmoi.osRelease "idLike") (regexMatch "\\bdebian\\b" .chezmoi.osRelease.idLike)) }}
-    ubuntu = {{ or (eq .chezmoi.osRelease.id "ubuntu") (and (hasKey .chezmoi "osRelease") (hasKey .chezmoi.osRelease "idLike") (regexMatch "\\bubuntu\\b" .chezmoi.osRelease.idLike)) }}
+    debian = {{ or (eq .chezmoi.osRelease.id "debian") (and (hasKey .chezmoi.osRelease "idLike") (regexMatch "\\bdebian\\b" .chezmoi.osRelease.idLike)) }}
+    ubuntu = {{ or (eq .chezmoi.osRelease.id "ubuntu") (and (hasKey .chezmoi.osRelease "idLike") (regexMatch "\\bubuntu\\b" .chezmoi.osRelease.idLike)) }}
     pop = {{ or (eq .chezmoi.osRelease.id "pop") (and (hasKey .chezmoi "osRelease") (hasKey .chezmoi.osRelease "idLike") (regexMatch "\\bpop\\b" .chezmoi.osRelease.idLike)) }}
 {{ writeToStdout "Config file generated at " .chezmoi.configFile "\n" -}}

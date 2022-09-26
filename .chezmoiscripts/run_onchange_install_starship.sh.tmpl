@@ -1,4 +1,4 @@
-{{ if .env.debian -}}
+{{ if or .env.mac .env.debian -}}
 #!/bin/bash
 set -euo pipefail
 
@@ -7,8 +7,6 @@ if ! command -v starship > /dev/null
 then
     echo "dotfiles: Installing Starship..."
     brew install --quiet starship
-    eval "$(starship init bash)"
-    eval "$(starship completions bash)"
     starship --version
 else
     echo "dotfiles: Starship is already installed"

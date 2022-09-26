@@ -1,20 +1,16 @@
-#!/bin/bash
+# todo: Migrate away from using this and instead manage .bashrc directly
+source ~/.dotfiles/aliases
+source ~/.dotfiles/functions
 
-# Aliases
-alias cz=chezmoi
-
-# Functions
-mcd () {
-  mkdir "$1" && cd "$1" || exit
-}
-rfr () {
-  rm -fr "$*"
-}
-
-# Chezmoi completions
+# Chezmoi
 eval "$(chezmoi completion bash)"
 
-# Brew completions
+# Starship
+eval "$(starship init bash)"
+eval "$(starship completions bash)"
+
+ {{ if .env.linux -}}
+ # Brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 if type brew &>/dev/null
 then
@@ -29,7 +25,4 @@ then
     done
   fi
 fi
-
-# Starship completions
-eval "$(starship init bash)"
-eval "$(starship completions bash)"
+{{ end -}}

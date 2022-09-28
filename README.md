@@ -5,6 +5,16 @@ Todos
 
 https://github.com/lucasresck/gnome-shell-extension-alt-tab-scroll-workaround
 
+
+Automate system management, including running `chezmoi apply` to refresh externals
+
+- On Mac, use launchd
+    https://www.launchd.info/
+    https://www.soma-zone.com/LaunchControl/
+- On Linux, use anacron since it will queue and combine updates that are
+  scheduled when the computer is off or asleep
+    https://askubuntu.com/a/848638/1624642
+
 Configuration
 
 -   Automate debconf https://github.com/phusion/baseimage-docker/issues/58#issuecomment-48032250

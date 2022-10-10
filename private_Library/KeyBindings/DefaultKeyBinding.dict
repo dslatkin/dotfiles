@@ -1,0 +1,18 @@
+/*
+    This file required a restart for changes to apply when I first set it up
+    
+    Resources:
+    - https://gist.github.com/trusktr/1e5e516df4e8032cbc3d
+    - https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/TextDefaultsBindings/TextDefaultsBindings.html
+*/
+{
+    /*
+        Fix shortcut-induced beeping for some Electron-based apps (for example, in
+        VS Code this fixes Ctrl + Cmd + Up|Left|Right which I use to adjust
+        terminal size)
+        - https://github.com/electron/electron/issues/2617#issuecomment-571447707
+    */
+    "^@\UF701" = "noop";
+    "^@\UF702" = "noop";
+    "^@\UF703" = "noop";
+}

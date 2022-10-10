@@ -3,8 +3,10 @@
 <!--
 Todos
 
-https://github.com/lucasresck/gnome-shell-extension-alt-tab-scroll-workaround
+https://www.shell-tips.com/mac/defaults/#gsc.tab=0
+https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 
+https://github.com/lucasresck/gnome-shell-extension-alt-tab-scroll-workaround
 
 Automate system management, including running `chezmoi apply` to refresh externals
 

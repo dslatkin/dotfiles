@@ -2,6 +2,9 @@
 source ~/.dotfiles/aliases
 source ~/.dotfiles/functions
 
+# Load default zsh completions (including git; check $fpath for full list)
+autoload -U compinit && compinit
+
 # Brew (note: should come before init scripts from packages it installs)
 eval "$(/opt/homebrew/bin/brew shellenv)"
 

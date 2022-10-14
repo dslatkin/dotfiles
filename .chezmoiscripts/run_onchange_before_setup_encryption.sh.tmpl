@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # Install age for Debian to be used for dotfile encryption
-if ! command -v age &> /dev/null
+if ! command -v age > /dev/null
 then
     echo "dotfiles: Installing age..."
     brew install age

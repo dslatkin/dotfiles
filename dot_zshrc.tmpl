@@ -2,11 +2,11 @@
 source ~/.dotfiles/aliases
 source ~/.dotfiles/functions
 
+# Brew (note: should come before init scripts from packages it installs)
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Starship
 eval "$(starship init zsh)"
-
-# Brew
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Get bash-like help, especially for zsh built-ins
 unalias run-help

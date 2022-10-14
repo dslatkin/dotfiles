@@ -2,7 +2,7 @@
 #!/bin/bash
 set -euo pipefail
 
-if ! brew ls -1 signal
+if ! brew ls -1 signal > /dev/null
 then
     echo "dotfiles: Installing Signal..."
     brew install --cask signal

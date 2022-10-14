@@ -2,7 +2,7 @@
 #!/bin/bash
 set -euo pipefail
 
-if ! brew ls -1 brave-browser
+if ! brew ls -1 brave-browser > /dev/null
 then
     echo "dotfiles: Installing Brave..."
     brew install --cask brave-browser

@@ -1,0 +1,12 @@
+{{ if .env.mac -}}
+#!/bin/bash
+set -euo pipefail
+
+if ! brew ls -1 signal
+then
+    echo "dotfiles: Installing Signal..."
+    brew install --cask signal
+else
+    echo "dotfiles: Signal is already installed"
+fi
+{{ end -}}

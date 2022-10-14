@@ -7,6 +7,7 @@
 	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"
 
 	# https://stackoverflow.com/a/25387310/9207275
+	# maybe update to skip-worktree? https://stackoverflow.com/a/13631525/9207275
 	hide = update-index --assume-unchanged
     unhide = update-index --no-assume-unchanged
 	hidden = ! git ls-files -v | grep '^h' | cut -c3-

@@ -8,6 +8,12 @@ https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 
 https://github.com/lucasresck/gnome-shell-extension-alt-tab-scroll-workaround
 
+Include official autocomplete for git:
+
+-   https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh
+-   Note that this depends on bashrc autocomplete being installed first
+-   Use chezmoi to manage these file updates
+
 Automate system management including running `chezmoi apply` to refresh externals:
 
 - Notes about `.chezmoiexternal.toml`:

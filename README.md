@@ -8,9 +8,13 @@ https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 
 https://github.com/lucasresck/gnome-shell-extension-alt-tab-scroll-workaround
 
-Automate system management, including running `chezmoi apply` to refresh externals
+Automate system management including running `chezmoi apply` to refresh externals:
 
-- On Mac, use launchd
+- Notes about `.chezmoiexternal.toml`:
+    - Zsh example with gotchas: https://www.chezmoi.io/user-guide/include-files-from-elsewhere/
+    - Maybe use v3 API instead of /archive/branch on GitHub repos: https://stackoverflow.com/a/8378458/9207275
+    - Use --progress to show progress bar when downloading externals (and can be set in chezmoi config)
+- On Mac, use launchd for automation
     https://www.launchd.info/
     https://www.soma-zone.com/LaunchControl/
 - On Linux, use anacron since it will queue and combine updates that are

@@ -2,8 +2,6 @@
 {{- /* - $packages := list "alpha" "beta" "gamma" */ -}}
 {{- /* - $packages | quoteList | join ", " | cat "qqq" | cat "xxx" "yyy" | writeToStdout "a" "b" "c" - */ -}}
 
-# Note: We can't use camelCase for [data] until chezmoi can fix snake_case:
-# https://www.chezmoi.io/reference/templates/variables/
 encryption = "age"
 [age]
     identity = "~/.dotfiles/identity.key"

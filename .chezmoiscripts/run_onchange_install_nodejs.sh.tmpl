@@ -1,0 +1,21 @@
+{{ if or .env.mac .env.debian -}}
+#!/bin/bash
+set -euo pipefail
+
+if ! command -v volta > /dev/null
+then
+    echo "dotfiles: Installing Volta..."
+    brew install volta
+    volta --version
+else
+    echo "dotfiles: Volta is already installed"
+fi
+
+if ! command -v node > /dev/null
+then
+    echo "dotfiles: Installing Node.js with Volta..."
+    brew install volta
+else
+    echo "dotfiles: Node.js is already installed"
+fi
+{{ end -}}

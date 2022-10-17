@@ -49,11 +49,9 @@ Git autocomplete
 
 ## Installation
 
-Linux:
-
-1. Run the install script `./install.sh`
-2. Start a new shell with changes `exec bash`
-3. `chezmoi edit-config` to customize machine-specific settings
+1. `./install.sh`
+2. `exec bash` or `exec zsh` to get shell changes
+3. `chezmoi edit-config` to further customize
 
 VS Code Settings:
 
@@ -67,10 +65,11 @@ VS Code Settings:
 }
 ```
 
-Note: There's a dev container as a record of general deps and suggested settings
-to maintain this repo, but typically I don't do this work in a dev container
-since the use of the dotfiles themselves take care of any machine-to-machine
-differences.
+## References
+
+- [Go template functions](https://pkg.go.dev/text/template)
+- [Sprig template functions](http://masterminds.github.io/sprig/)
+- [Chezmoi template functions](https://www.chezmoi.io/reference/templates/functions/)
 
 <!--
 ## Terminal colors

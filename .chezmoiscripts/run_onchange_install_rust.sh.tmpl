@@ -1,4 +1,4 @@
-{{ if or (.env.mac) (.env.linux) -}}
+{{ if or (.isMac) (.isLinux) -}}
 #!/bin/bash
 
 if ! command -v rustc > /dev/null

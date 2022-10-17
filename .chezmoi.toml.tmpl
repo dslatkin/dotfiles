@@ -1,6 +1,26 @@
 {{- /*https://github.com/twpayne/chezmoi/discussions/2114#discussioncomment-2887508*/ -}}
 {{- /* - $packages := list "alpha" "beta" "gamma" */ -}}
 {{- /* - $packages | quoteList | join ", " | cat "qqq" | cat "xxx" "yyy" | writeToStdout "a" "b" "c" - */ -}}
+{{- /* writeToStdout (toString (typeOf .chezmoi)) */ -}}
+{{- /* writeToStdout (toString (hasKey .chezmoi.osRelease "idLike")) */ -}}
+{{- /* writeToStdout "***\n" */ -}}
+
+{{ $name := promptStringOnce . "name" "Name for git commits" | quote -}}
+{{ $isMac := eq .chezmoi.os "darwin" -}}
+{{ $isLinux := eq .chezmoi.os "linux" }}
+{{ $isPop := false -}}
+{{ $isUbuntu := false -}}
+{{ $isDebian := false -}}
+{{ if not (eq (typeOf .chezmoi.osRelease) "<nil>") -}}
+    {{ $isPop = eq .chezmoi.osRelease.id "pop" -}}
+    {{ $isUbuntu = eq .chezmoi.osRelease.id "ubuntu" -}}
+    {{ $isDebian = eq .chezmoi.osRelease.id "debian" -}}
+    {{ if hasKey .chezmoi.osRelease "idLike" -}}
+        {{ $isPop = regexMatch "\\bisPop\\b" .chezmoi.osRelease.idLike -}}
+        {{ $isUbuntu = regexMatch "\\bisUbuntu\\b" .chezmoi.osRelease.idLike -}}
+        {{ $isDebian = regexMatch "\\bisDebian\\b" .chezmoi.osRelease.idLike -}}
+    {{ end -}}
+{{ end -}}
 
 encryption = "age"
 [age]
@@ -10,15 +30,10 @@ encryption = "age"
     command = "code"
     args = "--wait"
 [data]
-    name = {{ promptStringOnce . "name" "Name for git commits" | quote }}
-    personal = {{ promptBoolOnce . "personal" "Include personal settings" true }}
-    work = {{ promptBoolOnce . "work" "Include work settings" true }}
-[data.install]
-    ai_tooling = {{ promptBoolOnce .install "ai_tooling" "Include AI tooling" true }}
-[data.env]
-    mac = {{ eq .chezmoi.os "darwin" }}
-    linux = {{ eq .chezmoi.os "linux" }}
-    debian = {{ or (eq .chezmoi.osRelease.id "debian") (and (hasKey .chezmoi.osRelease "idLike") (regexMatch "\\bdebian\\b" .chezmoi.osRelease.idLike)) }}
-    ubuntu = {{ or (eq .chezmoi.osRelease.id "ubuntu") (and (hasKey .chezmoi.osRelease "idLike") (regexMatch "\\bubuntu\\b" .chezmoi.osRelease.idLike)) }}
-    pop = {{ or (eq .chezmoi.osRelease.id "pop") (and (hasKey .chezmoi "osRelease") (hasKey .chezmoi.osRelease "idLike") (regexMatch "\\bpop\\b" .chezmoi.osRelease.idLike)) }}
+    name = {{ $name }}
+    isMac = {{ $isMac }}
+    isLinux = {{ $isLinux }}
+    isPop = {{ $isPop }}
+    isUbuntu = {{ $isUbuntu }}
+    isDebian = {{ $isDebian }}
 {{ writeToStdout "Config file generated at " .chezmoi.configFile "\n" -}}

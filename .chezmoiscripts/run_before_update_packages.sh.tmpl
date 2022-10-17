@@ -1,4 +1,4 @@
-{{ if or .env.mac .env.debian -}}
+{{ if or .isMac .isDebian -}}
 #!/bin/bash
 set -euo pipefail
 
@@ -9,7 +9,7 @@ brew update --quiet
 brew upgrade --quiet
 {{ end }}
 
-{{- if .env.debian -}}
+{{ if .isDebian -}}
 echo "dotfiles: Upgrading Debian apt packages..."
 sudo apt-get -qq update
 sudo apt-get -qq upgrade

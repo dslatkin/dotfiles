@@ -1,4 +1,4 @@
-{{ if or .env.mac .env.debian -}}
+{{ if or .isMac .isDebian -}}
 #!/bin/bash
 set -euo pipefail
 

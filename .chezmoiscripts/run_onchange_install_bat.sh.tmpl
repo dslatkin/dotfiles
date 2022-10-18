@@ -1,0 +1,17 @@
+{{ if or .isMac .isLinux -}}
+#!/bin/bash
+set -euo pipefail
+
+if ! command -v bat > /dev/null
+then
+    echo "dotfiles: Installing bat..."
+    brew install --quiet bat
+    bat --version
+else
+    echo "dotfiles: bat is already installed"
+fi
+
+# todo: Test config file location in Linux
+# `bat --config-file` to locate user config file
+# `bat --generate-config-file` to generate this default config file
+{{ end -}}

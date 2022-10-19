@@ -1,0 +1,13 @@
+{{ if or .isMac .isLinux -}}
+#!/bin/bash
+set -euo pipefail
+
+if ! command -v delta > /dev/null
+then
+    echo "dotfiles: Installing Delta..."
+    brew install --quiet git-delta
+    delta --version
+else
+    echo "dotfiles: Delta is already installed"
+fi
+{{ end -}}

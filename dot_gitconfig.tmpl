@@ -15,20 +15,5 @@
     unhide = update-index --no-assume-unchanged
     hidden = ! git ls-files -v | grep '^h' | cut -c3-
 
-# Delta config
-[core]
-    pager = delta
-[interactive]
-    diffFilter = delta --color-only # using --color-only supports `git add --patch`
-[add.interactive]
-    useBuiltin = false # needed for git 2.37.0
-[delta]
-    navigate = true # use n and N to move between diff sections
-    syntax-theme = base16
-    line-numbers = true
-    plus-style = "green reverse normal"
-    minus-style = "red reverse normal"
-    minus-emph-style = "red reverse italic normal"
-    plus-emph-style = "green reverse italic normal"
-    plus-non-emph-style = "green reverse dim normal"
-    minus-non-emph-style = "red reverse dim normal"
+[diff]
+    external = difft

@@ -1,0 +1,13 @@
+{{ if or .isMac .isLinux -}}
+#!/bin/bash
+set -euo pipefail
+
+if ! command -v difft > /dev/null
+then
+    echo "dotfiles: Installing Difftastic..."
+    brew install --quiet difftastic
+    difft --version
+else
+    echo "dotfiles: Difftastic is already installed"
+fi
+{{ end -}}

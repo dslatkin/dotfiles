@@ -5,7 +5,9 @@
 [user]
 	name = {{ .name }}
 
-# To set an alias: git config --configLocation alias.aliasName 'command --options'
+[diff]
+    colorMoved = dimmed-zebra
+
 [alias]
 	# https://stackoverflow.com/a/11768843/9207275
 	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"

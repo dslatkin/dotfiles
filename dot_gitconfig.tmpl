@@ -1,3 +1,7 @@
+[core]
+	editor = nano
+	excludesfile = {{ .chezmoi.homeDir }}/.gitignore
+
 [user]
 	name = {{ .name }}
 
@@ -11,8 +15,3 @@
 	hide = update-index --assume-unchanged
     unhide = update-index --no-assume-unchanged
 	hidden = ! git ls-files -v | grep '^h' | cut -c3-
-
-# Make sure default editor is nano for Mac
-[core]
-	editor = nano
-	excludesfile = {{ .chezmoi.homeDir }}/.gitignore

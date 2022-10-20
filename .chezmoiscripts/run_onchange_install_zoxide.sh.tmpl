@@ -1,0 +1,13 @@
+{{ if or .env.mac .env.linux -}}
+#!/bin/bash
+set -euo pipefail
+
+if ! command -v zoxide > /dev/null
+then
+    echo "dotfiles: Installing Zoxide..."
+    brew install --quiet zoxide
+    zoxide --version
+else
+    echo "dotfiles: Zoxide is already installed"
+fi
+{{ end -}}

@@ -2,18 +2,14 @@ source ~/.dotfiles/env
 source ~/.dotfiles/aliases
 source ~/.dotfiles/functions
 
-# Git
 source ~/.dotfiles/external/git-completion.bash
 
-# Chezmoi
 eval "$(chezmoi completion bash)"
-
-# Starship
 eval "$(starship init bash)"
 eval "$(starship completions bash)"
+eval "$(zoxide init bash)"
 
  {{ if .env.linux -}}
- # Brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 if type brew &>/dev/null
 then

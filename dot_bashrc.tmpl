@@ -12,7 +12,7 @@ eval "$(chezmoi completion bash)"
 eval "$(starship init bash)"
 eval "$(starship completions bash)"
 
- {{ if .isLinux -}}
+ {{ if .env.linux -}}
  # Brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 if type brew &>/dev/null

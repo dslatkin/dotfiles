@@ -1,10 +1,10 @@
 /README.md
 /install.sh
 
-{{ if not .isMac -}}
+{{ if not .env.mac -}}
 /Library/
 {{ end -}}
 
-{{ if not .isPop -}}
+{{ if not .env.pop -}}
 /.local/share/fonts/
 {{ end -}}

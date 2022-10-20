@@ -5,35 +5,40 @@
 {{- /* writeToStdout (toString (hasKey .chezmoi.osRelease "idLike")) */ -}}
 {{- /* writeToStdout "***\n" */ -}}
 
-{{ $name := promptStringOnce . "name" "Name for git commits" | quote -}}
-{{ $isMac := eq .chezmoi.os "darwin" -}}
-{{ $isLinux := eq .chezmoi.os "linux" }}
-{{ $isPop := false -}}
-{{ $isUbuntu := false -}}
-{{ $isDebian := false -}}
+{{ $mac := eq .chezmoi.os "darwin" -}}
+{{ $linux := eq .chezmoi.os "linux" }}
+{{ $pop := false -}}
+{{ $ubuntu := false -}}
+{{ $debian := false -}}
 {{ if not (eq (typeOf .chezmoi.osRelease) "<nil>") -}}
-    {{ $isPop = eq .chezmoi.osRelease.id "pop" -}}
-    {{ $isUbuntu = eq .chezmoi.osRelease.id "ubuntu" -}}
-    {{ $isDebian = eq .chezmoi.osRelease.id "debian" -}}
+    {{ $pop = eq .chezmoi.osRelease.id "pop" -}}
+    {{ $ubuntu = eq .chezmoi.osRelease.id "ubuntu" -}}
+    {{ $debian = eq .chezmoi.osRelease.id "debian" -}}
     {{ if hasKey .chezmoi.osRelease "idLike" -}}
-        {{ $isPop = regexMatch "\\bisPop\\b" .chezmoi.osRelease.idLike -}}
-        {{ $isUbuntu = regexMatch "\\bisUbuntu\\b" .chezmoi.osRelease.idLike -}}
-        {{ $isDebian = regexMatch "\\bisDebian\\b" .chezmoi.osRelease.idLike -}}
+        {{ $pop = regexMatch "\\bpop\\b" .chezmoi.osRelease.idLike -}}
+        {{ $ubuntu = regexMatch "\\bubuntu\\b" .chezmoi.osRelease.idLike -}}
+        {{ $debian = regexMatch "\\bdebian\\b" .chezmoi.osRelease.idLike -}}
     {{ end -}}
 {{ end -}}
 
 encryption = "age"
+
 [age]
     identity = "~/.dotfiles/identity.key"
     recipient = "age1g9zf8v82yt24ns2vm9hfzf8hr53w08mzdmkg7yrkz7xps73j39tqgqhnes"
+
 [edit]
     command = "code"
     args = "--wait"
+
 [data]
-    name = {{ $name }}
-    isMac = {{ $isMac }}
-    isLinux = {{ $isLinux }}
-    isPop = {{ $isPop }}
-    isUbuntu = {{ $isUbuntu }}
-    isDebian = {{ $isDebian }}
+    name = {{ promptStringOnce . "name" "Name for git commits" | quote }}
+
+[data.env]
+    mac = {{ $mac }}
+    linux = {{ $linux }}
+    pop = {{ $pop }}
+    ubuntu = {{ $ubuntu }}
+    debian = {{ $debian }}
+
 {{ writeToStdout "Config file generated at " .chezmoi.configFile "\n" -}}

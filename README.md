@@ -74,6 +74,13 @@ VS Code Settings:
 <!--
 ## Terminal colors
 
+Make terminal output better
+
+https://github.com/alrra/dotfiles/issues/19#issuecomment-195406139
+https://stackoverflow.com/questions/2924697/how-does-one-output-bold-text-in-bash#comment123922440_2924755
+https://stackoverflow.com/a/2924755/9207275
+https://stackoverflow.com/a/42449998/9207275
+
 Good reference: https://stackoverflow.com/a/28938235/9207275
 
 These lists should work in shell script:

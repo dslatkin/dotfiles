@@ -1,6 +1,6 @@
 {
     "files.associations": {
-		"*.toml.tmpl": "toml",
+		"*.tmpl": "toml",
 		"*.sh.tmpl": "shellscript",
 		"*rc.tmpl": "shellscript",
 	},

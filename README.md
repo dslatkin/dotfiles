@@ -70,6 +70,7 @@ VS Code Settings:
 - [Go template functions](https://pkg.go.dev/text/template)
 - [Sprig template functions](http://masterminds.github.io/sprig/)
 - [Chezmoi template functions](https://www.chezmoi.io/reference/templates/functions/)
+- [Terminal shortcuts](https://stackoverflow.com/a/58966776/9207275)
 
 <!--
 ## Terminal colors

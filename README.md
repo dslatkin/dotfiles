@@ -71,6 +71,9 @@ VS Code Settings:
 - [Sprig template functions](http://masterminds.github.io/sprig/)
 - [Chezmoi template functions](https://www.chezmoi.io/reference/templates/functions/)
 - [Terminal shortcuts](https://stackoverflow.com/a/58966776/9207275)
+- [fzf](https://github.com/junegunn/fzf)
+    - [Keybindings](https://github.com/junegunn/fzf#using-the-finder)
+    - [Search patterns](https://github.com/junegunn/fzf#search-syntax)
 
 <!--
 ## Terminal colors

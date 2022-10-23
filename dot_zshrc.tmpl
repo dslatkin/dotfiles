@@ -6,10 +6,17 @@ source ~/.dotfiles/functions
 # Load default zsh completions (including git; check $fpath for full list)
 autoload -U compinit && compinit
 
-# Many runtime config scripts need to be added after `compinit` is called
+# Brew shellenv vars should come before using any brew-installed CLIs below
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Init scripts should generally be called after `compinit` above
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+
+# Init fzf, mirrors $(brew --prefix)/opt/fzf/install
+{{ if or .env.mac .env.linux -}}
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+{{ end -}}
 
 # Get bash-like help, especially for zsh built-ins
 unalias run-help

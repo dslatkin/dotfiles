@@ -9,7 +9,12 @@ eval "$(starship init bash)"
 eval "$(starship completions bash)"
 eval "$(zoxide init bash)"
 
- {{ if .env.linux -}}
+{{ if or .env.mac .env.linux -}}
+# Init fzf, mirrors $(brew --prefix)/opt/fzf/install
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+{{ end -}}
+
+{{ if .env.linux -}}
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 if type brew &>/dev/null
 then

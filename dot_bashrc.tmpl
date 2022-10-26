@@ -1,18 +1,13 @@
 source ~/.dotfiles/env
 source ~/.dotfiles/aliases
 source ~/.dotfiles/functions
-
+source ~/.dotfiles/includes/fzf.bash
 source ~/.dotfiles/external/git-completion.bash
 
 eval "$(chezmoi completion bash)"
 eval "$(starship init bash)"
 eval "$(starship completions bash)"
 eval "$(zoxide init bash)"
-
-{{ if or .env.mac .env.linux -}}
-# Init fzf, mirrors $(brew --prefix)/opt/fzf/install
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-{{ end -}}
 
 {{ if .env.linux -}}
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

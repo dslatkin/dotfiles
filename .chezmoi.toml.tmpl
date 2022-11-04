@@ -1,10 +1,3 @@
-{{- /*https://github.com/twpayne/chezmoi/discussions/2114#discussioncomment-2887508*/ -}}
-{{- /* - $packages := list "alpha" "beta" "gamma" */ -}}
-{{- /* - $packages | quoteList | join ", " | cat "qqq" | cat "xxx" "yyy" | writeToStdout "a" "b" "c" - */ -}}
-{{- /* writeToStdout (toString (typeOf .chezmoi)) */ -}}
-{{- /* writeToStdout (toString (hasKey .chezmoi.osRelease "idLike")) */ -}}
-{{- /* writeToStdout "***\n" */ -}}
-
 {{ $mac := eq .chezmoi.os "darwin" -}}
 {{ $linux := eq .chezmoi.os "linux" -}}
 {{ $pop := false -}}
@@ -42,3 +35,16 @@ ubuntu = {{ $ubuntu }}
 debian = {{ $debian }}
 
 {{ writeToStdout "Config file generated at " .chezmoi.configFile "\n" -}}
+
+{{- /*
+$packages := dict "data" (dict "packages" (list
+    (list 
+        (dict "name" "irssi")
+        (dict "needs" (list "mac" "linux"))
+    )
+    (list
+        (dict "name" "blah")
+        (dict "needs" (list "mac" "linux"))
+    )
+))
+*/ -}}

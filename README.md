@@ -1,4 +1,4 @@
-# dslatkin/dotfiles
+# danny's dotfiles
 
 <!--
 Todos
@@ -49,16 +49,18 @@ Git autocomplete
 
 ## Installation
 
+Setup dotfiles:
+
 1. `./install.sh`
 2. `exec bash` or `exec zsh` to get shell changes
 3. `chezmoi edit-config` to further customize
 
-VS Code Settings:
+Update VS Code's settings:
 
-```json
+```jsonc
 {
-	"editor.fontFamily": "'FiraCode Nerd Font', 'monospace', monospace", // Mac: "'FiraCode NF', Consolas, 'Courier New', monospace",
-	"editor.fontLigatures": "'ss02'", // use <=, >= variants
+	"editor.fontFamily": "'FiraCode Nerd Font', Consolas, 'Courier New', monospace",
+	"editor.fontLigatures": "'ss02'", // <=, >= variants
 	"editor.fontSize": 13,
 	"terminal.integrated.fontFamily": "'FiraCode Nerd Font', Consolas, 'Courier New', monospace",
 	"terminal.integrated.fontSize": 13

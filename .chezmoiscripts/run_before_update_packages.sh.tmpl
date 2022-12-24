@@ -11,8 +11,8 @@ brew upgrade --quiet
 
 {{ if .env.debian -}}
 echo "dotfiles: Upgrading Debian apt packages..."
-sudo apt-get -qq update
-sudo apt-get -qq upgrade
 export DEBIAN_FRONTEND=noninteractive
 export DEBIAN_PRIORITY=critical
+sudo apt-get -qq update
+sudo apt-get -qq upgrade
 {{ end -}}

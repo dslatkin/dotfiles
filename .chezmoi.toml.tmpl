@@ -3,7 +3,9 @@
 {{ $pop := false -}}
 {{ $ubuntu := false -}}
 {{ $debian := false -}}
-{{ if not (eq (typeOf .chezmoi.osRelease) "<nil>") -}}
+
+{{- /* For Linux cross-distro compatibility */ -}}
+{{ if not (eq .chezmoi.os "darwin") -}}
     {{ $pop = eq .chezmoi.osRelease.id "pop" -}}
     {{ $ubuntu = eq .chezmoi.osRelease.id "ubuntu" -}}
     {{ $debian = eq .chezmoi.osRelease.id "debian" -}}

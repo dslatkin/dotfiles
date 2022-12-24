@@ -15,5 +15,8 @@
     unhide = update-index --no-assume-unchanged
     hidden = ! git ls-files -v | grep '^h' | cut -c3-
 
+    # Prettier git log
+    lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
 [diff]
     external = difft

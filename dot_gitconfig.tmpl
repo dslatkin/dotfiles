@@ -18,5 +18,10 @@
     # Prettier git log
     lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
-[diff]
-    external = difft
+# todo
+# Re-add this when dev containers get dotfiles, since otherwise difft is missing
+# from within the dev container and since VS Code forwards git config, things
+# break.
+#
+# [diff]
+#     external = difft

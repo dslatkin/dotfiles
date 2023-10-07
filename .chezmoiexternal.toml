@@ -5,10 +5,10 @@
 {{ if .env.mac -}}
 [".dotfiles/fonts/Fira Code Retina Nerd Font Complete.ttf"]
     type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Retina/complete/Fira%20Code%20Retina%20Nerd%20Font%20Complete.ttf"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Retina/FiraCodeNerdFont-Retina.ttf"
     refreshPeriod = "24h"
 {{ end -}}
 [".dotfiles/fonts/Fira Code Regular Nerd Font Complete.ttf"]
     type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/FiraCodeNerdFont-Regular.ttf"
     refreshPeriod = "24h"

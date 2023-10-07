@@ -3,12 +3,14 @@
     url = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash"
     refreshPeriod = "24h"
 {{ if .env.mac -}}
-[".dotfiles/fonts/Fira Code Retina Nerd Font Complete.ttf"]
+[".dotfiles/fonts/Fira Code Retina Nerd Font.ttf"]
     type = "file"
     url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Retina/FiraCodeNerdFont-Retina.ttf"
     refreshPeriod = "24h"
 {{ end -}}
-[".dotfiles/fonts/Fira Code Regular Nerd Font Complete.ttf"]
+{{ if .env.linux -}}
+[".dotfiles/fonts/Fira Code Regular Nerd Font.ttf"]
     type = "file"
     url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/FiraCodeNerdFont-Regular.ttf"
     refreshPeriod = "24h"
+{{ end -}}

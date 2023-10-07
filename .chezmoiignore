@@ -5,6 +5,6 @@
 /Library/
 {{ end -}}
 
-{{ if not .env.pop -}}
+{{ if not .env.pop_os -}}
 /.local/share/fonts/
 {{ end -}}

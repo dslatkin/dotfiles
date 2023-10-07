@@ -1,16 +1,16 @@
 {{ $mac := eq .chezmoi.os "darwin" -}}
 {{ $linux := eq .chezmoi.os "linux" -}}
-{{ $pop := false -}}
+{{ $pop_os := false -}}
 {{ $ubuntu := false -}}
 {{ $debian := false -}}
 
 {{- /* For Linux cross-distro compatibility */ -}}
 {{ if not (eq .chezmoi.os "darwin") -}}
-    {{ $pop = eq .chezmoi.osRelease.id "pop" -}}
+    {{ $pop_os = eq .chezmoi.osRelease.id "pop" -}}
     {{ $ubuntu = eq .chezmoi.osRelease.id "ubuntu" -}}
     {{ $debian = eq .chezmoi.osRelease.id "debian" -}}
     {{ if hasKey .chezmoi.osRelease "idLike" -}}
-        {{ $pop = regexMatch "\\bpop\\b" .chezmoi.osRelease.idLike -}}
+        {{ $pop_os = regexMatch "\\bpop\\b" .chezmoi.osRelease.idLike -}}
         {{ $ubuntu = regexMatch "\\bubuntu\\b" .chezmoi.osRelease.idLike -}}
         {{ $debian = regexMatch "\\bdebian\\b" .chezmoi.osRelease.idLike -}}
     {{ end -}}
@@ -32,7 +32,7 @@ name = {{ promptStringOnce . "name" "Name for git commits" | quote }}
 [data.env]
 mac = {{ $mac }}
 linux = {{ $linux }}
-pop = {{ $pop }}
+pop_os = {{ $pop_os }}
 ubuntu = {{ $ubuntu }}
 debian = {{ $debian }}
 

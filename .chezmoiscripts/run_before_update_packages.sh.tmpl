@@ -2,15 +2,15 @@
 #!/bin/bash
 set -euo pipefail
 
-echo "dotfiles: Upgrading homebrew packages..."
 export HOMEBREW_NO_ENV_HINTS=true
 export HOMEBREW_NO_ANALYTICS=true
+echo "💬 Updating Homebrew packages..."
 brew update --quiet
 brew upgrade --quiet
 {{ end }}
 
 {{ if .env.debian -}}
-echo "dotfiles: Upgrading Debian apt packages..."
+echo "💬 Updating Debian packages..."
 export DEBIAN_FRONTEND=noninteractive
 export DEBIAN_PRIORITY=critical
 sudo apt-get -qq update

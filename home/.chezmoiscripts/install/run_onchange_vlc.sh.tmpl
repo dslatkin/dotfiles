@@ -4,10 +4,10 @@ set -euo pipefail
 
 if ! command -v vlc > /dev/null
 then
-    echo "dotfiles: Installing VLC Player..."
+    echo "💬 Installing VLC Player"
     sudo apt-get -q -y install --no-install-recommends vlc
     vlc --version
 else
-    echo "dotfiles: VLC Player is already installed"
+    echo "💬 VLC Player is already installed"
 fi
 {{ end -}}

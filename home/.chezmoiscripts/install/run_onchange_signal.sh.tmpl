@@ -4,9 +4,9 @@ set -euo pipefail
 
 if ! brew ls -1 signal > /dev/null
 then
-    echo "dotfiles: Installing Signal..."
+    echo "💬 Installing Signal"
     brew install --cask signal
 else
-    echo "dotfiles: Signal is already installed"
+    echo "💬 Signal is already installed"
 fi
 {{ end -}}

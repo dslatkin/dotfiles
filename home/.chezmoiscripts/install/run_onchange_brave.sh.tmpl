@@ -4,10 +4,10 @@ set -euo pipefail
 
 if ! brew ls -1 brave-browser > /dev/null
 then
-    echo "dotfiles: Installing Brave..."
+    echo "💬 Installing Brave"
     brew install --cask brave-browser
 else
-    echo "dotfiles: Brave is already installed"
+    echo "💬 Brave is already installed"
 fi
 {{ end -}}
 
@@ -17,7 +17,7 @@ set -euo pipefail
 
 if ! command -v brave-browser > /dev/null
 then
-    echo "dotfiles: Installing Brave..."
+    echo "💬 Installing Brave"
     sudo apt-get -q -y install --no-install-recommends apt-transport-https curl
     curl --fail --silent --show-error --location https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg \
         | sudo tee /usr/share/keyrings/brave-browser-archive-keyring.gpg > /dev/null
@@ -26,6 +26,6 @@ then
     sudo apt-get -q -y install --no-install-recommends brave-browser
     brave-browser --version
 else
-    echo "dotfiles: Brave is already installed"
+    echo "💬 Brave is already installed"
 fi
 {{ end -}}

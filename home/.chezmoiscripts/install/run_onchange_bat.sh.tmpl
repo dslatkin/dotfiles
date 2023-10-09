@@ -4,11 +4,11 @@ set -euo pipefail
 
 if ! command -v bat > /dev/null
 then
-    echo "dotfiles: Installing bat..."
+    echo "💬 Installing bat"
     brew install --quiet bat
     bat --version
 else
-    echo "dotfiles: bat is already installed"
+    echo "💬 bat is already installed"
 fi
 
 # todo: Test config file location in Linux

@@ -4,10 +4,10 @@ set -euo pipefail
 
 if ! brew ls -1 byobu > /dev/null
 then
-    echo "dotfiles: Installing byobu..."
+    echo "💬 Installing byobu"
     brew install byobu
     byobu --version
 else
-    echo "dotfiles: Byobu is already installed"
+    echo "💬 Byobu is already installed"
 fi
 {{ end -}}

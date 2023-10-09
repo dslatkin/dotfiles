@@ -4,13 +4,13 @@ set -euo pipefail
 
 export HOMEBREW_NO_ENV_HINTS=true
 export HOMEBREW_NO_ANALYTICS=true
-echo "💬 Updating Homebrew packages..."
+echo "💬 Updating Homebrew packages"
 brew update --quiet
 brew upgrade --quiet
 {{ end }}
 
 {{ if .env.debian -}}
-echo "💬 Updating Debian packages..."
+echo "💬 Updating Debian packages"
 export DEBIAN_FRONTEND=noninteractive
 export DEBIAN_PRIORITY=critical
 sudo apt-get -qq update

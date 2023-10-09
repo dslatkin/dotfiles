@@ -4,18 +4,18 @@ set -euo pipefail
 
 if ! command -v volta > /dev/null
 then
-    echo "dotfiles: Installing Volta..."
+    echo "💬 Installing Volta"
     brew install volta
     volta --version
 else
-    echo "dotfiles: Volta is already installed"
+    echo "💬 Volta is already installed"
 fi
 
 if ! command -v node > /dev/null
 then
-    echo "dotfiles: Installing Node.js with Volta..."
+    echo "💬 Installing Node.js with Volta"
     volta install node
 else
-    echo "dotfiles: Node.js is already installed"
+    echo "💬 Node.js is already installed"
 fi
 {{ end -}}

@@ -3,12 +3,12 @@
 
 if ! command -v rustc > /dev/null
 then
-    echo "dotfiles: Installing Rust..."
+    echo "💬 Installing Rust"
     curl --proto '=https' --tlsv1.3 --fail --silent --show-error https://sh.rustup.rs \
         | /bin/sh -s -- -y
     source "$HOME/.cargo/env"
     rustc --version
 else
-    echo "dotfiles: Rust is already installed"
+    echo "💬 Rust is already installed"
 fi
 {{ end -}}

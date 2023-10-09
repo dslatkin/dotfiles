@@ -6,23 +6,23 @@ set -euo pipefail
 # https://stackoverflow.com/questions/54100496/check-if-an-app-is-installed-on-macos-using-the-terminal
 if ! command -v docker > /dev/null
 then
-    echo "dotfiles: Installing Docker..."
-    echo "Downloading Docker.dmg..."
+    echo "💬 Installing Docker"
+    echo "💬 Downloading Docker.dmg"
     curl --fail --progress-bar \
         --location https://desktop.docker.com/mac/main/arm64/Docker.dmg \
         --output ~/Downloads/Docker.dmg
-    echo "Mounting volume..."
+    echo "💬 Mounting volume"
     sudo hdiutil attach ~/Downloads/Docker.dmg
-    echo "Installing..."
+    echo "💬 Installing"
     # todo: Test non-root install using `--user=dslatkin` flag?
     sudo /Volumes/Docker/Docker.app/Contents/MacOS/install --accept-license
-    echo "Detaching volume..."
+    echo "💬 Detaching volume"
     sudo hdiutil detach /Volumes/Docker
     # todo: Make sure opening this way works
     open Docker.app
-    echo "dotfiles: Docker is installed, but needs to be launched to complete setup"
+    echo "💬 Docker is installed, but needs to be launched to complete setup"
 else
-    echo "dotfiles: Docker is already installed"
+    echo "💬 Docker is already installed"
 fi
 {{ end -}}
 
@@ -32,7 +32,7 @@ set -euo pipefail
 
 if ! command -v docker > /dev/null
 then
-    echo "dotfiles: Installing Docker..."
+    echo "💬 Installing Docker"
     sudo apt-get -q -y install --no-install-recommends ca-certificates curl gnupg lsb-release
     sudo mkdir -p /etc/apt/keyrings
     curl --fail --silent --show-error --location https://download.docker.com/linux/ubuntu/gpg \
@@ -46,6 +46,6 @@ then
     sudo usermod -aG docker "$USER"
     newgrp docker
 else
-    echo "dotfiles: Docker is already installed"
+    echo "💬 Docker is already installed"
 fi
 {{ end -}}

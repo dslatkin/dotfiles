@@ -27,7 +27,7 @@ command = "code"
 args = "--wait"
 
 [data]
-name = {{ promptStringOnce . "name" "Name for git commits" | quote }}
+name = {{ promptStringOnce . "name" "💬 Name for git commits" | quote }}
 
 [data.env]
 mac = {{ $mac }}
@@ -36,7 +36,7 @@ pop_os = {{ $pop_os }}
 ubuntu = {{ $ubuntu }}
 debian = {{ $debian }}
 
-{{ writeToStdout "Config file generated at " .chezmoi.configFile "\n" -}}
+{{ writeToStdout "💬 Config file generated at " .chezmoi.configFile "\n" -}}
 
 {{- /*
 $packages := dict "data" (dict "packages" (list

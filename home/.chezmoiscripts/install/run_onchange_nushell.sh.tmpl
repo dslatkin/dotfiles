@@ -4,11 +4,11 @@ set -euo pipefail
 
 if ! command -v nu > /dev/null
 then
-    echo "dotfiles: Installing Nushell..."
+    echo "💬 Installing Nushell"
     brew install --quiet nushell
     nu --version
 else
-    echo "dotfiles: Nushell is already installed"
+    echo "💬 Nushell is already installed"
 fi
 
 # todo: Add homebrew to nushell's path?

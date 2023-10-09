@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "dotfiles: $0"
+
 set -euo pipefail
 
 # Install brew (Mac and Linux)
@@ -16,4 +16,4 @@ fi
 
 # Init chezmoi
 chezmoi init dslatkin/dotfiles --apply
-echo "dotfiles: Run \"exec bash\" or \"exec zsh\" to get your shell changes"
+echo "💬 Run \"exec bash\" or \"exec zsh\" to get your shell changes"

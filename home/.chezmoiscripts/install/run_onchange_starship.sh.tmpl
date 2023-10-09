@@ -5,10 +5,10 @@ set -euo pipefail
 # todo: May also work on Mac; not sure if `/dev/null` exists
 if ! command -v starship > /dev/null
 then
-    echo "dotfiles: Installing Starship..."
+    echo "💬 Installing Starship"
     brew install --quiet starship
     starship --version
 else
-    echo "dotfiles: Starship is already installed"
+    echo "💬 Starship is already installed"
 fi
 {{ end -}}

@@ -4,20 +4,20 @@ set -euo pipefail
 
 if ! command -v age > /dev/null
 then
-    echo "dotfiles: Installing age..."
+    echo "💬 Installing age"
     brew install age
 else
-    echo "dotfiles: Age is already installed"
+    echo "💬 Age is already installed"
 fi
 
 if [ ! -f ~/.dotfiles/identity.key ]; then
-    echo "dotfiles: Installing age private key..."
+    echo "💬 Installing age private key"
     mkdir -p ~/.dotfiles/
     age --decrypt \
         --output ~/.dotfiles/identity.key \
         "{{ .chezmoi.sourceDir }}/dot_dotfiles/identity.key.age"
     chmod 600 ~/.dotfiles/identity.key
 else
-    echo "dotfiles: Age private key is already installed"
+    echo "💬 Age private key is already installed"
 fi
 {{ end -}}

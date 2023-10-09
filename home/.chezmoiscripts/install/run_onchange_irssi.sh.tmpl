@@ -4,11 +4,11 @@ set -euo pipefail
 
 if ! command -v irssi > /dev/null
 then
-    echo "dotfiles: Installing irssi..."
+    echo "💬 Installing irssi"
     brew install --quiet irssi
     irssi --version
 else
-    echo "dotfiles: irssi is already installed"
+    echo "💬 irssi is already installed"
 fi
 
 # todo: Configure https://irssi.org/New-users/

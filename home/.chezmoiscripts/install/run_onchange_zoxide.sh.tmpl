@@ -4,10 +4,10 @@ set -euo pipefail
 
 if ! command -v zoxide > /dev/null
 then
-    echo "dotfiles: Installing Zoxide..."
+    echo "💬 Installing Zoxide"
     brew install --quiet zoxide
     zoxide --version
 else
-    echo "dotfiles: Zoxide is already installed"
+    echo "💬 Zoxide is already installed"
 fi
 {{ end -}}

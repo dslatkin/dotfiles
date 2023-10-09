@@ -4,10 +4,10 @@ set -euo pipefail
 
 if ! brew ls -1 fd > /dev/null
 then
-    echo "dotfiles: Installing fd..."
+    echo "💬 Installing fd"
     brew install --quiet fd
     fd --version
 else
-    echo "dotfiles: fd is already installed"
+    echo "💬 fd is already installed"
 fi
 {{ end -}}

@@ -4,10 +4,10 @@ set -euo pipefail
 
 if ! command -v fzf > /dev/null
 then
-    echo "dotfiles: Installing fzf..."
+    echo "💬 Installing fzf"
     brew install --quiet fzf
     fzf --version
 else
-    echo "dotfiles: fzf is already installed"
+    echo "💬 fzf is already installed"
 fi
 {{ end -}}

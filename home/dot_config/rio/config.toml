@@ -79,9 +79,9 @@ performance = "High"
 #     - "Fullscreen" window is created with fullscreen
 #
 # Example:
-# [window]
-# width = 600
-# height = 400
+[window]
+width = 900
+height = 600
 # mode = "Windowed"
 
 # Background configuration

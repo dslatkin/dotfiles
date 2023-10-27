@@ -1,13 +1,11 @@
 {{ if or .env.mac .env.debian -}}
 #!/bin/bash
+
 set -euo pipefail
 
-if ! command -v age > /dev/null
-then
+if ! command -v age > /dev/null; then
     echo "💬 Installing age"
     brew install age
-else
-    echo "💬 Age is already installed"
 fi
 
 if [ ! -f ~/.dotfiles/identity.key ]; then

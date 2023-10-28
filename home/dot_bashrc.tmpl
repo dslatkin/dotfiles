@@ -1,8 +1,13 @@
+# shellcheck shell=bash
+
+# shellcheck source=dot_dotfiles/env.tmpl
 source ~/.dotfiles/env
+# shellcheck source=dot_dotfiles/aliases
 source ~/.dotfiles/aliases
+# shellcheck source=dot_dotfiles/functions
 source ~/.dotfiles/functions
-source ~/.dotfiles/includes/fzf.bash
-source ~/.dotfiles/external/git-completion.bash
+# shellcheck source=dot_dotfiles/includes/fzf.zsh
+source ~/.dotfiles/includes/fzf.zsh
 
 eval "$(chezmoi completion bash)"
 eval "$(starship init bash)"

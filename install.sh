@@ -3,14 +3,12 @@
 set -euo pipefail
 
 # Install brew (Mac and Linux)
-if ! command -v brew > /dev/null
-then
+if ! command -v brew > /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Install chezmoi (Linux brew)
-if ! command -v chezmoi > /dev/null
-then
+if ! command -v chezmoi > /dev/null; then
     brew install chezmoi
 fi
 

@@ -38,8 +38,7 @@ mkdir -p "$DATABASE"
 CPU_COUNT=$(sysctl -a | grep machdep.cpu | grep machdep.cpu.thread_count | sed 's:machdep.cpu.thread_count\: ::')
 
 REGEX="^[0-9]+$"
-if ! [[ $CPU_COUNT =~ $REGEX ]]
-then
+if ! [[ $CPU_COUNT =~ $REGEX ]]; then
     CPU_COUNT="4"
 fi
 
@@ -56,8 +55,7 @@ codeql database analyze $DATABASE $QUERY_SPECIFIERS --format=csv --output=$REPOR
 # NC='\033[0m' # No Color
 
 
-# if [[ $REPORT_LINES = "0" ]]
-# then
+# if [[ $REPORT_LINES = "0" ]]; then
 #     echo "${GREEN}🎉 No issues found${NC}"
 #     exit 0
 # else

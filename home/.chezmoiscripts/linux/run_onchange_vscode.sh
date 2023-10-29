@@ -5,8 +5,7 @@ set -euo pipefail
 echo "⚠️ Linux scripts need work"
 exit 0
 
-# if ! command -v code > /dev/null
-# then
+# if ! command -v code > /dev/null; then
 #     echo "💬 Installing VS Code"
 #     sudo apt-get -q -y install --no-install-recommends wget gpg
 #     wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg

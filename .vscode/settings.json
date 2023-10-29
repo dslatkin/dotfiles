@@ -3,5 +3,7 @@
 		"*.tmpl": "toml",
 		"*.sh.tmpl": "shellscript",
 		"*rc.tmpl": "shellscript",
+		"*.bash": "shellscript",
+		"*.zsh": "shellscript",
 	}
 }

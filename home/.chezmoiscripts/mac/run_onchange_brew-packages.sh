@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Running casks"
+
 formulae=(
     bat
     difftastic
@@ -11,6 +13,15 @@ formulae=(
     zoxide
 )
 
+casks=(
+    1password
+    1password-cli
+    brave-browser
+    signal
+    visual-studio-code
+    vlc
+)
+
 for formula in "${formulae[@]}"; do
     if brew ls -1 --formula "$formula" >/dev/null 2>&1; then
         continue
@@ -18,4 +29,13 @@ for formula in "${formulae[@]}"; do
 
     echo "💬 Installing $formula"
     brew install --quiet --formula "$formula"
+done
+
+for cask in "${casks[@]}"; do
+    if brew ls -1 --cask "$cask" > /dev/null; then
+        continue
+    fi
+
+    echo "💬 Installing $cask"
+    brew install --quiet --cask "$cask"
 done

@@ -1,4 +1,3 @@
-{{ if or .env.mac .env.debian -}}
 #!/bin/bash
 
 set -euo pipefail
@@ -18,4 +17,3 @@ if [ ! -f ~/.dotfiles/identity.key ]; then
 else
     echo "💬 Age private key is already installed"
 fi
-{{ end -}}

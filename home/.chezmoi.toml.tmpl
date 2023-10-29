@@ -1,18 +1,17 @@
-{{ $mac := eq .chezmoi.os "darwin" -}}
-{{ $linux := eq .chezmoi.os "linux" -}}
-{{ $pop_os := false -}}
-{{ $ubuntu := false -}}
-{{ $debian := false -}}
-
-{{- /* For Linux cross-distro compatibility */ -}}
+{{ $is_windows := eq .chezmoi.os "windows" -}}
+{{ $is_mac := eq .chezmoi.os "darwin" -}}
+{{ $is_linux := eq .chezmoi.os "linux" -}}
+{{ $is_pop_os := false -}}
+{{ $is_ubuntu := false -}}
+{{ $is_debian := false -}}
 {{ if not (eq .chezmoi.os "darwin") -}}
-    {{ $pop_os = eq .chezmoi.osRelease.id "pop" -}}
-    {{ $ubuntu = eq .chezmoi.osRelease.id "ubuntu" -}}
-    {{ $debian = eq .chezmoi.osRelease.id "debian" -}}
+    {{ $is_pop_os = eq .chezmoi.osRelease.id "pop" -}}
+    {{ $is_ubuntu = eq .chezmoi.osRelease.id "ubuntu" -}}
+    {{ $is_debian = eq .chezmoi.osRelease.id "debian" -}}
     {{ if hasKey .chezmoi.osRelease "idLike" -}}
-        {{ $pop_os = regexMatch "\\bpop\\b" .chezmoi.osRelease.idLike -}}
-        {{ $ubuntu = regexMatch "\\bubuntu\\b" .chezmoi.osRelease.idLike -}}
-        {{ $debian = regexMatch "\\bdebian\\b" .chezmoi.osRelease.idLike -}}
+        {{ $is_pop_os = regexMatch "\\bpop\\b" .chezmoi.osRelease.idLike -}}
+        {{ $is_ubuntu = regexMatch "\\bubuntu\\b" .chezmoi.osRelease.idLike -}}
+        {{ $is_debian = regexMatch "\\bdebian\\b" .chezmoi.osRelease.idLike -}}
     {{ end -}}
 {{ end -}}
 
@@ -28,25 +27,11 @@ args = "--wait"
 
 [data]
 name = {{ promptStringOnce . "name" "💬 Name for git commits" | quote }}
-
-[data.env]
-mac = {{ $mac }}
-linux = {{ $linux }}
-pop_os = {{ $pop_os }}
-ubuntu = {{ $ubuntu }}
-debian = {{ $debian }}
+is_windows = {{ $is_windows }}
+is_mac = {{ $is_mac }}
+is_linux = {{ $is_linux }}
+is_pop_os = {{ $is_pop_os }}
+is_ubuntu = {{ $is_ubuntu }}
+is_debian = {{ $is_debian }}
 
 {{ writeToStdout "💬 Config file generated at " .chezmoi.configFile "\n" -}}
-
-{{- /*
-$packages := dict "data" (dict "packages" (list
-    (list 
-        (dict "name" "irssi")
-        (dict "needs" (list "mac" "linux"))
-    )
-    (list
-        (dict "name" "blah")
-        (dict "needs" (list "mac" "linux"))
-    )
-))
-*/ -}}

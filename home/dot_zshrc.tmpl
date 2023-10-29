@@ -20,13 +20,10 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(chezmoi completion zsh)"
 
-# Init fzf, mirrors $(brew --prefix)/opt/fzf/install
-{{ if or .env.mac .env.linux -}}
+# Init fzf, copied from $(brew --prefix)/opt/fzf/install
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-{{ end -}}
 
 # Get bash-like help, especially for zsh built-ins
 unalias run-help
 autoload run-help
 alias help=run-help
-{{ end -}}

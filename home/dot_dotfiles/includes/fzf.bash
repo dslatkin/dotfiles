@@ -1,5 +1,7 @@
 # Initially generated from $(brew --prefix)/opt/fzf/install
 
+# todo: Test on Linux
+
 # Setup fzf
 if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
   PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"

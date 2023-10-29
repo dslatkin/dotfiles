@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+touch ~/install-worked
+
 # Install brew (Mac and Linux)
 if ! command -v brew > /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

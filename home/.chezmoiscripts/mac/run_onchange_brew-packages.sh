@@ -7,7 +7,6 @@ formulae=(
     difftastic
     fd
     fzf
-    irssi
     nushell
     starship
     zoxide

@@ -1,5 +1,7 @@
 # shellcheck shell=bash
 
+true # https://github.com/koalaman/shellcheck/issues/2854#issuecomment-1807281415
+
 # shellcheck source=dot_dotfiles/env.tmpl
 source ~/.dotfiles/env
 # shellcheck source=dot_dotfiles/aliases
@@ -19,6 +21,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 if type brew &>/dev/null; then
   HOMEBREW_PREFIX="$(brew --prefix)"
   if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+    # shellcheck disable=SC1091
     source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
   else
     for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do

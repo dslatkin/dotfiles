@@ -1,5 +1,7 @@
 # shellcheck shell=bash
 
+true # https://github.com/koalaman/shellcheck/issues/2854#issuecomment-1807281415
+
 # shellcheck source=dot_dotfiles/env.tmpl
 source ~/.dotfiles/env
 # shellcheck source=dot_dotfiles/aliases
@@ -21,7 +23,10 @@ eval "$(zoxide init zsh)"
 eval "$(chezmoi completion zsh)"
 
 # Init fzf, copied from $(brew --prefix)/opt/fzf/install
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ -f ~/.fzf.zsh ]; then
+    # shellcheck disable=SC1091
+    source "$HOME/.fzf.zsh"
+fi
 
 # Get bash-like help, especially for zsh built-ins
 unalias run-help

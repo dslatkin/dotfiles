@@ -7,7 +7,27 @@ Setup dotfiles:
 1. `./install.sh`
 2. `exec bash` or `exec zsh` to get shell changes
 
-Then update VS Code's settings:
+<!--
+Update VS Code's settings in dev containers:
+
+```jsonc
+{
+    "dotfiles.repository": "dslatkin/dotfiles",
+    "dotfiles.targetPath": "~/.dotfiles/vscode",
+    "dotfiles.installCommand": "install.sh",
+    "settingsSync.ignoredSettings": [
+        "-dotfiles.installCommand",
+        "-dotfiles.repository",
+        "-dotfiles.targetPath",
+    ],
+    "dev.containers.defaultFeatures": {
+        "ghcr.io/devcontainers/features/nix:1": {}
+    },
+}
+```
+-->
+
+To get fonts working with VS Code:
 
 ```jsonc
 {

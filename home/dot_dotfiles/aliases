@@ -6,6 +6,4 @@ alias ll='ls -alF'
 alias ls='ls --color=auto'
 alias cat='bat --theme=base16'
 alias cz=chezmoi
-alias g='git'
-alias gpuo='push -u origin'
 alias grep='grep --color=auto'

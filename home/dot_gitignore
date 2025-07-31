@@ -1,3 +1,0 @@
-{{ if .is_mac -}}
-.DS_Store
-{{ end -}}

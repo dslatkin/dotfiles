@@ -10,7 +10,6 @@
 			"extensions": [
 				"timonwong.shellcheck",
 				"tamasfe.even-better-toml",
-				"TheNuProjectContributors.vscode-nushell-lang"
 			]
 		}
 	},

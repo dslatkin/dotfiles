@@ -16,7 +16,6 @@ casks=(
     1password
     1password-cli
     brave-browser
-    signal
     visual-studio-code
     vlc
 )

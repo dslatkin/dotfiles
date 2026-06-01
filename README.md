@@ -1,41 +1,38 @@
 # danny's dotfiles
 
-## Installing
+To manually install:
 
-Setup dotfiles:
+- On macOS, run `./install-mac.sh`
+- On Linux, run `./install-linux.sh`
 
-1. `./install.sh`
-2. `exec bash` or `exec zsh` to get shell changes
-
-<!--
-Update VS Code's settings in dev containers:
+For dev containers, add the following to your user settings:
 
 ```jsonc
 {
     "dotfiles.repository": "dslatkin/dotfiles",
     "dotfiles.targetPath": "~/.dotfiles/vscode",
-    "dotfiles.installCommand": "install.sh",
+    "dotfiles.installCommand": "install-linux.sh",
+    // Sync dotfiles settings across machines (by default, they don't)
     "settingsSync.ignoredSettings": [
-        "-dotfiles.installCommand",
         "-dotfiles.repository",
         "-dotfiles.targetPath",
-    ],
-    "dev.containers.defaultFeatures": {
-        "ghcr.io/devcontainers/features/nix:1": {}
-    },
+        "-dotfiles.installCommand",
+    ]
 }
 ```
--->
 
-To get fonts working with VS Code:
+To get Fira Code with Nerd Font glyphs working with VS Code:
 
 ```jsonc
 {
     "editor.fontFamily": "'FiraCode Nerd Font', Consolas, 'Courier New', monospace",
-    "editor.fontLigatures": "'ss02'", // <=, >= variants
+    "editor.fontLigatures": "'ss02'", // use variants <= and >=
     "terminal.integrated.fontFamily": "'FiraCode Nerd Font', Consolas, 'Courier New', monospace",
 }
 ```
+
+<!--
+todo - Update
 
 ## Development
 
@@ -84,3 +81,4 @@ in `/home/.chezmoi.toml.tmpl`, `/home/.chezmoiscripts/`, and
 - `fzf`
     -   [Keybindings](https://github.com/junegunn/fzf#using-the-finder)
     -   [Search patterns](https://github.com/junegunn/fzf#search-syntax)
+-->

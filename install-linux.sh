@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-if ! command -v brew >/dev/null; then
+if ! command -v brew > /dev/null; then
     echo "💬 Installing brew"
     /bin/bash -c "$(curl \
         --fail \
@@ -12,7 +12,7 @@ if ! command -v brew >/dev/null; then
     )"
 fi
 
-if ! command -v chezmoi >/dev/null; then
+if ! command -v chezmoi > /dev/null; then
     echo "💬 Installing chezmoi"
     brew install chezmoi
 fi
@@ -23,7 +23,7 @@ chezmoi init dslatkin/dotfiles --apply
 echo "💬 Configuring .bashrc"
 cat <<EOF >> "$HOME/.bashrc"
 # Added from dotfiles install script
-source "\$HOME/.dotfiles/bashrc"
+source "\$HOME/.dotfiles/bashrc.sh"
 EOF
 
 echo "✅ Dotfiles installed, run \"exec bash\" to get shell changes"

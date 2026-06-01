@@ -1,10 +1,7 @@
 {
     "files.associations": {
 		"*.tmpl": "toml",
-		".chezmoiignore": "ignore",
 		"*.sh.tmpl": "shellscript",
-		"*rc.tmpl": "shellscript",
-		"*.bash": "shellscript",
-		"*.zsh": "shellscript"
-	}
+		".chezmoiignore": "ignore",
+	},
 }

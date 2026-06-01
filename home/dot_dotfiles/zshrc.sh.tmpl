@@ -1,0 +1,22 @@
+# shellcheck shell=bash
+
+# https://github.com/koalaman/shellcheck/issues/2854#issuecomment-1807281415
+true
+
+# shellcheck source=aliases.sh
+source "$HOME/.dotfiles/aliases.sh"
+
+# shellcheck source=env.sh
+source "$HOME/.dotfiles/env.sh"
+
+# Initialize zsh completions
+autoload -U compinit && compinit
+
+# Get bash-like `help`, especially for zsh built-ins
+unalias run-help
+autoload run-help
+alias help=run-help
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(starship init zsh)"
+eval "$(chezmoi completion zsh)"

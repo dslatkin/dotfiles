@@ -1,0 +1,15 @@
+# shellcheck shell=bash
+
+# https://github.com/koalaman/shellcheck/issues/2854#issuecomment-1807281415
+true
+
+# shellcheck source=aliases.sh
+source "$HOME/.dotfiles/aliases.sh"
+
+# shellcheck source=env.sh
+source "$HOME/.dotfiles/env.sh"
+
+eval "$(brew shellenv)"
+eval "$(chezmoi completion bash)"
+eval "$(starship init bash)"
+eval "$(starship completions bash)"

@@ -1,9 +1,0 @@
-# shellcheck shell=bash
-
-alias l='ls -CF'
-alias la='ls -A'
-alias ll='ls -alF'
-alias ls='ls --color=auto'
-alias cat='bat --theme=base16'
-alias cz=chezmoi
-alias grep='grep --color=auto'

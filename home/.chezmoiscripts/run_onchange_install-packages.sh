@@ -1,27 +1,17 @@
 #!/bin/bash
 
-echo "Running casks"
+echo "💬 Installing brew packages"
 
 formulae=(
-    bat
-    difftastic
-    fd
-    fzf
-    nushell
+    shellcheck
     starship
-    zoxide
 )
 
 casks=(
-    1password
-    1password-cli
-    brave-browser
-    visual-studio-code
-    vlc
 )
 
 for formula in "${formulae[@]}"; do
-    if brew ls -1 --formula "$formula" >/dev/null 2>&1; then
+    if brew ls -1 --formula "$formula" > /dev/null 2>&1; then
         continue
     fi
 
@@ -37,3 +27,8 @@ for cask in "${casks[@]}"; do
     echo "💬 Installing $cask"
     brew install --quiet --cask "$cask"
 done
+
+echo "💬 Listing installed packages"
+brew list --installed-on-request
+
+echo "✅ Packages installed"

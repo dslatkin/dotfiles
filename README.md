@@ -5,6 +5,8 @@ To manually install:
 - On macOS, run `./install-mac.sh`
 - On Linux, run `./install-linux.sh`
 
+## Dev containers
+
 For dev containers, add the following to your user settings:
 
 ```jsonc
@@ -12,6 +14,7 @@ For dev containers, add the following to your user settings:
     "dotfiles.repository": "dslatkin/dotfiles",
     "dotfiles.targetPath": "~/.dotfiles/vscode",
     "dotfiles.installCommand": "install-linux.sh",
+
     // Sync dotfiles settings across machines (by default, they don't)
     "settingsSync.ignoredSettings": [
         "-dotfiles.repository",
@@ -20,6 +23,8 @@ For dev containers, add the following to your user settings:
     ]
 }
 ```
+
+## Nerd fonts
 
 To get Fira Code with Nerd Font glyphs working with VS Code:
 
@@ -30,6 +35,23 @@ To get Fira Code with Nerd Font glyphs working with VS Code:
     "terminal.integrated.fontFamily": "'FiraCode Nerd Font', Consolas, 'Courier New', monospace",
 }
 ```
+
+## 1Password agents
+
+On macOS, the preferred way to configure all clients, terminal and GUI, with
+1Password's SSH agent is to create and activate a `plist` entry [as described
+here](https://www.1password.dev/ssh/agent/compatibility#configure-ssh_auth_sock-globally-for-every-client).
+Note the command at the bottom that you need to activate it with `launchctl`.
+There's also an undocumented step that requires you allow the entry under
+macOS's "Login Items & Extensions" -> "App Background Activity" setting, or else
+the agent won't activate on startup. The `plist` entry will show up as "sh: Item
+from unidentified developer" since it executes a `sh` command.
+
+There are similar instructions on that page for configuring Linux with a shell
+profile script in `/etc/profile.d/`.
+
+1Password's SSH agent in dev containers should work automatically if the agent
+has been configured in this way.
 
 <!--
 todo - Update

@@ -6,33 +6,33 @@
 {{ if .is_mac -}} 
 ["Library/Fonts/Fira Code Nerd Font Bold.ttf"]
     type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/FiraCode/Bold/FiraCodeNerdFont-Bold.ttf"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/FiraCode/FiraCodeNerdFont-Bold.ttf"
     refreshPeriod = "24h"
 ["Library/Fonts/Fira Code Nerd Font Light.ttf"]
     type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/FiraCode/Light/FiraCodeNerdFont-Light.ttf"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/FiraCode/FiraCodeNerdFont-Light.ttf"
     refreshPeriod = "24h"
 ["Library/Fonts/Fira Code Nerd Font Medium.ttf"]
     type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/FiraCode/Medium/FiraCodeNerdFont-Medium.ttf"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/FiraCode/FiraCodeNerdFont-Medium.ttf"
     refreshPeriod = "24h"
 ["Library/Fonts/Fira Code Nerd Font Regular.ttf"]
     type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/FiraCode/Regular/FiraCodeNerdFont-Regular.ttf"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/FiraCode/FiraCodeNerdFont-Regular.ttf"
     refreshPeriod = "24h"
 ["Library/Fonts/Fira Code Nerd Font Retina.ttf"]
     type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/FiraCode/Retina/FiraCodeNerdFont-Retina.ttf"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/FiraCode/FiraCodeNerdFont-Retina.ttf"
     refreshPeriod = "24h"
 ["Library/Fonts/Fira Code Nerd Font SemiBold.ttf"]
     type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/FiraCode/SemiBold/FiraCodeNerdFont-SemiBold.ttf"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/FiraCode/FiraCodeNerdFont-SemiBold.ttf"
     refreshPeriod = "24h"
 {{ end -}}
 
 {{ if .is_linux -}}
 [".dotfiles/fonts/Fira Code Regular Nerd Font.ttf"]
     type = "file"
-    url = "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/FiraCodeNerdFont-Regular.ttf"
+    url = "https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/FiraCode/FiraCodeNerdFont-Regular.ttf"
     refreshPeriod = "24h"
 {{ end -}}

@@ -1,19 +1,19 @@
 {{ if not (or .is_mac .is_linux) }}
-/.chezmoiscripts/**/*.sh
+.chezmoiscripts/**/*.sh
 {{ end -}}
 
 {{ if not .is_windows }}
-/.chezmoiscripts/**/*.ps1
+.chezmoiscripts/**/*.ps1
 {{ end -}}
 
 {{ if not .is_mac -}}
-/.chezmoiscripts/mac/**/*
-/.chezmoiscripts/**/*.mac.sh
+.chezmoiscripts/mac/**/*
+.chezmoiscripts/**/*.mac.sh
 /Library/
 {{ end -}}
 
 {{ if not .is_linux -}}
-/.chezmoiscripts/linux/**/*
-/.chezmoiscripts/**/*.linux.sh
-/.local/share/fonts/
+.chezmoiscripts/linux/**/*
+.chezmoiscripts/**/*.linux.sh
+.local/share/fonts/
 {{ end -}}

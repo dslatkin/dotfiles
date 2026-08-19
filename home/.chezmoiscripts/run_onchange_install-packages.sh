@@ -6,6 +6,7 @@ formulae=(
     mise
     shellcheck
     starship
+    yt-dlp
 )
 
 casks=(

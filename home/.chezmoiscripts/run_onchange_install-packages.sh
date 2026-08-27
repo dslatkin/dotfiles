@@ -3,6 +3,7 @@
 echo "💬 Installing brew packages"
 
 formulae=(
+    ffmpeg
     mise
     shellcheck
     starship

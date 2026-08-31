@@ -9,8 +9,8 @@ source "$HOME/.dotfiles/aliases.sh"
 # shellcheck source=env.sh
 source "$HOME/.dotfiles/env.sh"
 
-eval "$(brew shellenv)"
+eval "$(brew shellenv bash)"
 eval "$(chezmoi completion bash)"
 eval "$(mise activate bash)"
 eval "$(starship init bash)"
-eval "$(starship completions bash)"
+# eval "$(starship completion bash)" # undocumented - do we need this?

@@ -17,7 +17,8 @@ unalias run-help
 autoload run-help
 alias help=run-help
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(mise activate bash)"
-eval "$(starship init zsh)"
+eval "$(brew shellenv zsh)"
 eval "$(chezmoi completion zsh)"
+eval "$(mise activate zsh)"
+eval "$(starship init zsh)"
+# eval "$(starship completion zsh)" # undocumented - do we need this?

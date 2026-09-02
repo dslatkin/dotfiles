@@ -1,9 +1,31 @@
 # danny's dotfiles
 
-To manually install:
+To install, download and run the script for your platform.
 
-- On macOS, run `./install-mac.sh`
-- On Linux, run `./install-linux.sh`
+> [!TIP]
+> It's always a good practice to inspect the any script you download before running.
+
+On macOS:
+
+```sh
+curl \
+    --fail \
+    --silent \
+    --show-error \
+    --location https://github.com/dslatkin/dotfiles/raw/refs/heads/main/install-mac.sh \
+    | bash
+```
+
+On Linux:
+
+```sh
+curl \
+    --fail \
+    --silent \
+    --show-error \
+    --location https://github.com/dslatkin/dotfiles/raw/refs/heads/main/install-linux.sh \
+    | bash
+```
 
 ## Dev containers
 

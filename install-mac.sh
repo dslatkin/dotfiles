@@ -3,7 +3,8 @@
 set -euo pipefail
 
 if ! command -v brew > /dev/null; then
-    echo "❌ Missing brew, use the .pkg installer to install it"
+    echo "❌ Missing brew, use the latest .pkg release to install"
+    echo "🔗 https://github.com/Homebrew/brew/releases/latest"
     exit 1
 fi
 

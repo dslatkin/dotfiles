@@ -1,11 +1,20 @@
 # danny's dotfiles
 
-To install, download and run the script for your platform.
+To install, follow the instructions below for your platform.
 
 > [!TIP]
 > It's always a good practice to inspect the any script you download before running.
 
-On macOS:
+## macOS
+
+These steps are optimized for a local user running without admin privileges.
+
+First download the following packages:
+
+- [Brew, using the `.pkg` file](https://github.com/Homebrew/brew/releases/latest)
+- [Ghostty, using the `.dmg` file](https://ghostty.org/download)
+
+Then run the following:
 
 ```sh
 curl \
@@ -16,7 +25,9 @@ curl \
     | bash
 ```
 
-On Linux:
+## Linux:
+
+Run the following:
 
 ```sh
 curl \

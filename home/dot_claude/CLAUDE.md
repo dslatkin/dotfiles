@@ -1,5 +1,12 @@
 # Personal conventions
 
+## Comments
+
+Code comments should be clear and concise. They should not explain what code
+does; the code should be self-documenting in its choice of variable and function
+names. Comments should only add context that could not be discerned from reading
+the code itself.
+
 ## Writing style
 
 Avoid using the following words and any of their variants (e.g. conjugations,
@@ -8,6 +15,12 @@ plutality, etc.) in commits, comments, and documentation:
 - "Carries", as in having a responsibility
 - "Mints" as in a factory minting something
 - "Invariant" as used in computer science
+
+## Code style
+
+### Shell scripts
+
+- Prefer long-form options when they exist for readability.
 
 ## Git practices
 

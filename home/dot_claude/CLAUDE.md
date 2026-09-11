@@ -10,7 +10,7 @@ the code itself.
 ## Writing style
 
 Avoid using the following words and any of their variants (e.g. conjugations,
-plutality, etc.) in commits, comments, and documentation:
+plurality, etc.) in commits, comments, and documentation:
 
 - "Carries", as in having a responsibility
 - "Mints" as in a factory minting something
@@ -18,9 +18,25 @@ plutality, etc.) in commits, comments, and documentation:
 
 ## Code style
 
+- When the file being edited already follows an obvious convention, match it
+  over the directives below.
+
 ### Shell scripts
 
-- Prefer long-form options when they exist for readability.
+- Start bash scripts with `set -euo pipefail`.
+- Use long-form options when they exist for better readability.
+- When a command has many options, break it across lines with a trailing
+  backslash and indent the continuation lines one level deeper.
+- Prefer logging what's happening instead of annotating in comments.
+- Use the following conventions when logging output:
+    - Informative, usually right before doing something:
+      `echo "💬 Processing $file"`
+    - Success, usually right before exiting zero:
+      `echo "✅ Finished processing $file"`
+    - Error, usually right before exiting non-zero:
+      `echo "❌ Could not find $file" >&2`
+    - Warning: `echo "🚧 Skipping step due to $reason" >&2`
+    - Link: `echo "🔗 https://example.com/docs"`
 
 ## Git practices
 

@@ -43,19 +43,4 @@ fi
 # echo "💬 Initializing chezmoi and applying to home directory"
 # chezmoi init dslatkin/dotfiles --apply "${chezmoi_extra_options[@]}"
 
-echo "💬 Configuring .gitconfig"
-cat <<EOF >>"$HOME/.gitconfig"
-
-# Added from dotfiles install script
-[include]
-path = ~/.dotfiles/gitconfig
-EOF
-
-# echo "💬 Configuring .bashrc"
-# cat <<EOF >>"$HOME/.bashrc"
-#
-# # Added from dotfiles install script
-# source "\$HOME/.dotfiles/bashrc.sh"
-# EOF
-
 # echo "✅ Dotfiles installed, run \"exec bash\" to get shell changes"

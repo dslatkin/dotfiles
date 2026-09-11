@@ -15,7 +15,7 @@ if [[ "${CODESPACES:-}" == "true" ]]; then
     chezmoi_extra_options+=(--source "$codespaces_dotfiles_dir")
 fi
 
-if ! command -v brew > /dev/null; then
+if ! command -v brew >/dev/null; then
     echo "💬 Installing brew"
     brew_installer=$(curl \
         --fail \
@@ -29,7 +29,7 @@ if ! command -v brew > /dev/null; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 fi
 
-if ! command -v chezmoi > /dev/null; then
+if ! command -v chezmoi >/dev/null; then
     echo "💬 Installing chezmoi"
     brew install chezmoi
 fi
@@ -38,7 +38,7 @@ fi
 # chezmoi init dslatkin/dotfiles --apply "${chezmoi_extra_options[@]}"
 
 # # echo "💬 Configuring .bashrc"
-# # cat <<EOF >> "$HOME/.bashrc"
+# # cat <<EOF >>"$HOME/.bashrc"
 # # # Added from dotfiles install script
 # # source "\$HOME/.dotfiles/bashrc.sh"
 # # EOF

@@ -19,7 +19,7 @@ readonly formulas=(
 )
 
 for formula in "${formulas[@]}"; do
-    if brew ls -1 --formula "$formula" > /dev/null 2>&1; then
+    if brew ls -1 --formula "$formula" >/dev/null 2>&1; then
         continue
     fi
 

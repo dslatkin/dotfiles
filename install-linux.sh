@@ -2,13 +2,20 @@
 
 set -euo pipefail
 
+brew_installer_env=()
+if [[ "${REMOTE_CONTAINERS:-}" == "true" || "${CODESPACES:-}" == "true" ]]; then
+    brew_installer_env+=(NONINTERACTIVE=1)
+fi
+
+chezmoi_extra_options=()
+if [[ "${CODESPACES:-}" == "true" ]]; then
+    codespaces_dotfiles_dir=/workspaces/.codespaces/.persistedshare/dotfiles
+    chezmoi_extra_options+=(--source "$codespaces_dotfiles_dir")
+fi
+
 if ! command -v brew > /dev/null; then
     echo "💬 Installing brew"
-    brew_env=()
-    if [[ "${REMOTE_CONTAINERS:-}" == "true" || "${CODESPACES:-}" == "true" ]]; then
-        brew_env+=(NONINTERACTIVE=1)
-    fi
-    env "${brew_env[@]}" /bin/bash -c "$(curl \
+    env "${brew_installer_env[@]}" /bin/bash -c "$(curl \
         --fail \
         --silent \
         --show-error \
@@ -25,17 +32,8 @@ if ! command -v chezmoi > /dev/null; then
     brew install chezmoi
 fi
 
-echo "💬 Initializing chezmoi"
-if [[ "${CODESPACES:-}" == "true" ]]; then
-    # Source dir location cannot change and is documented here
-    # https://docs.github.com/en/codespaces/troubleshooting/troubleshooting-personalization-for-codespaces#troubleshooting-dotfiles
-    codespaces_dotfiles_dir=/workspaces/.codespaces/.persistedshare/dotfiles
-    chezmoi_extra_options+=(--source "$codespaces_dotfiles_dir")
-fi
-
-echo "💬 Todo - init and apply chezmoi"
+# echo "💬 Initializing chezmoi and applying to home directory"
 # chezmoi init dslatkin/dotfiles --apply "${chezmoi_extra_options[@]}"
-# chezmoi init dslatkin/dotfiles --apply
 
 # # echo "💬 Configuring .bashrc"
 # # cat <<EOF >> "$HOME/.bashrc"

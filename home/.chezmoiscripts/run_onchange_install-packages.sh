@@ -13,10 +13,11 @@ readonly mac_only_formulas=(
     yt-dlp
 )
 
-readonly formulas=(
-    "${global_formulas[@]}"
-    "${mac_only_formulas[@]}"
-)
+formulas=("${global_formulas[@]}")
+if [[ "${DOTFILES_IS_MAC:-}" == "true" ]]; then
+    formulas+=("${mac_only_formulas[@]}")
+fi
+readonly formulas
 
 for formula in "${formulas[@]}"; do
     if brew ls -1 --formula "$formula" >/dev/null 2>&1; then

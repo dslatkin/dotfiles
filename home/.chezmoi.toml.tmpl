@@ -37,4 +37,13 @@ is_ubuntu = {{ $is_ubuntu }}
 is_debian = {{ $is_debian }}
 is_container = {{ $is_container }}
 
+[scriptEnv]
+DOTFILES_IS_WINDOWS = {{ $is_windows }}
+DOTFILES_IS_MAC = {{ $is_mac }}
+DOTFILES_IS_LINUX = {{ $is_linux }}
+DOTFILES_IS_POP_OS = {{ $is_pop_os }}
+DOTFILES_IS_UBUNTU = {{ $is_ubuntu }}
+DOTFILES_IS_DEBIAN = {{ $is_debian }}
+DOTFILES_IS_CONTAINER = {{ $is_container }}
+
 {{ writeToStdout "💬 Config file generated at " .chezmoi.configFile "\n" -}}

@@ -18,6 +18,11 @@
     {{ end -}}
 {{ end -}}
 
+# In Codespaces, we don't get to choose the directory our dotfiles are cloned
+# to, so we instead pass it manually during `chezmoi init` and persist it in
+# config for future invocations.
+sourceDir = {{ .chezmoi.sourceDir | quote }}
+
 [edit]
 command = "code"
 args = "--wait"

@@ -25,17 +25,17 @@ if ! command -v chezmoi > /dev/null; then
     brew install chezmoi
 fi
 
-# echo "💬 Initializing chezmoi"
-# chezmoi_options=(--apply)
-# if [[ "${CODESPACES:-}" == "true" ]]; then
-#     # Source dir location cannot change and is documented here
-#     # https://docs.github.com/en/codespaces/troubleshooting/troubleshooting-personalization-for-codespaces#troubleshooting-dotfiles
-#     codespaces_dotfiles_dir=/workspaces/.codespaces/.persistedshare/dotfiles
-#     chezmoi_options+=(--source "$codespaces_dotfiles_dir")
-# fi
+echo "💬 Initializing chezmoi"
+if [[ "${CODESPACES:-}" == "true" ]]; then
+    # Source dir location cannot change and is documented here
+    # https://docs.github.com/en/codespaces/troubleshooting/troubleshooting-personalization-for-codespaces#troubleshooting-dotfiles
+    codespaces_dotfiles_dir=/workspaces/.codespaces/.persistedshare/dotfiles
+    chezmoi_extra_options+=(--source "$codespaces_dotfiles_dir")
+fi
 
-# chezmoi init "${chezmoi_options[@]}" dslatkin/dotfiles
-# # chezmoi init dslatkin/dotfiles --apply
+echo "💬 Todo - init and apply chezmoi"
+# chezmoi init dslatkin/dotfiles --apply "${chezmoi_extra_options[@]}"
+# chezmoi init dslatkin/dotfiles --apply
 
 # # echo "💬 Configuring .bashrc"
 # # cat <<EOF >> "$HOME/.bashrc"

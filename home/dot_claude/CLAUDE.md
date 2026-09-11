@@ -25,6 +25,8 @@ plurality, etc.) in commits, comments, and documentation:
 
 - Start bash scripts with `set -euo pipefail`.
 - Use long-form options when they exist for better readability.
+- If a variant references a file or a dir, name it as such; for example:
+  `$target_file`, `$source_file`, `$parent_dir`, etc.
 - When a command has many options, break it across lines with a trailing
   backslash and indent the continuation lines one level deeper.
 - Prefer logging what's happening instead of annotating in comments.

@@ -3,5 +3,6 @@
 		"*.tmpl": "toml",
 		"*.sh.tmpl": "shellscript",
 		".chezmoiignore": "ignore",
+		"gitconfig.tmpl": "properties",
 	},
 }

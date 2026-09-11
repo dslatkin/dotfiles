@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 echo "💬 Installing brew packages"
 
 readonly global_formulas=(

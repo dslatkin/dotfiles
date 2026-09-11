@@ -6,6 +6,9 @@ export HOMEBREW_NO_ANALYTICS=1
 
 brew_installer_env=()
 if [[ "${REMOTE_CONTAINERS:-}" == "true" || "${CODESPACES:-}" == "true" ]]; then
+    # Be extra sure we don't get prompted no matter the install process
+    export HOMEBREW_NO_ASK=1
+
     # It needs help figuring out non-interactive for dev containers
     brew_installer_env+=(NONINTERACTIVE=1)
 fi

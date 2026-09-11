@@ -30,7 +30,7 @@
     refreshPeriod = "24h"
 {{ end -}}
 
-{{ if and (.is_linux (not .is_container)) -}}
+{{ if and .is_linux (not .is_container) -}}
 [".dotfiles/fonts/Fira Code Regular Nerd Font.ttf"]
     type = "file"
     url = "https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/FiraCode/FiraCodeNerdFont-Regular.ttf"

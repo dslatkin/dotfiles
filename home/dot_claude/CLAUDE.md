@@ -1,6 +1,23 @@
 # Personal conventions
 
-## Commit messages
+## Writing style
+
+Avoid using the following words and any of their variants (e.g. conjugations,
+plutality, etc.) in commits, comments, and documentation:
+
+- "Carries", as in having a responsibility
+- "Mints" as in a factory minting something
+- "Invariant" as used in computer science
+
+## Git practices
+
+### Staging and committing
+
+- Do not stage nor commit changes without specifically being prompted to do so.
+- When renaming or removing a file, do not use `git mv` or `git rm` unless
+  actually intended to stage.
+
+### Commit messages
 
 - Subject line:
     - Describe the kind of change rather than its details, such as "add

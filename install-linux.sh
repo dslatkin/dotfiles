@@ -15,12 +15,13 @@ fi
 
 if ! command -v brew > /dev/null; then
     echo "💬 Installing brew"
-    env "${brew_installer_env[@]}" /bin/bash -c "$(curl \
+    brew_installer=$(curl \
         --fail \
         --silent \
         --show-error \
         --location https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-    )"
+    )
+    env "${brew_installer_env[@]}" /bin/bash -c "$brew_installer"
 
     # This dir is standard via Brew install script
     brew_dir=/home/linuxbrew/.linuxbrew

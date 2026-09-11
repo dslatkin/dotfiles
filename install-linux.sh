@@ -4,11 +4,13 @@ set -euo pipefail
 
 brew_installer_env=()
 if [[ "${REMOTE_CONTAINERS:-}" == "true" || "${CODESPACES:-}" == "true" ]]; then
+    # It needs help figuring out non-interactive for dev containers
     brew_installer_env+=(NONINTERACTIVE=1)
 fi
 
 chezmoi_extra_options=()
 if [[ "${CODESPACES:-}" == "true" ]]; then
+    # We don't get to choose where it goes on Codespace installs
     codespaces_dotfiles_dir=/workspaces/.codespaces/.persistedshare/dotfiles
     chezmoi_extra_options+=(--source "$codespaces_dotfiles_dir")
 fi
@@ -23,9 +25,8 @@ if ! command -v brew > /dev/null; then
     )
     env "${brew_installer_env[@]}" /bin/bash -c "$brew_installer"
 
-    # This dir is standard via Brew install script
-    brew_dir=/home/linuxbrew/.linuxbrew
-    eval "$($brew_dir/bin/brew shellenv bash)"
+    # Standard location for Linux installs according to Brew install script
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 fi
 
 if ! command -v chezmoi > /dev/null; then

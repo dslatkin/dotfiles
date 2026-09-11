@@ -26,6 +26,7 @@ if ! command -v brew >/dev/null; then
     env "${brew_installer_env[@]}" /bin/bash -c "$brew_installer"
 
     # Standard location for Linux installs according to Brew install script
+    echo "💬 Hydrating shell environment"
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 fi
 

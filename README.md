@@ -2,8 +2,8 @@
 
 To install, follow the instructions below for your platform.
 
-> [!TIP]
-> It's always a good practice to inspect the any script you download before running.
+> [!TIP] It's always a good practice to inspect the any script you download
+> before running.
 
 ## macOS
 
@@ -53,7 +53,7 @@ For dev containers, add the following to your user settings:
         "-dotfiles.repository",
         "-dotfiles.targetPath",
         "-dotfiles.installCommand",
-    ]
+    ],
 }
 ```
 
@@ -72,8 +72,8 @@ To get Fira Code with Nerd Font glyphs working with VS Code:
 ## 1Password agents
 
 On macOS, the preferred way to configure all clients, terminal and GUI, with
-1Password's SSH agent is to create and activate a `plist` entry [as described
-here](https://www.1password.dev/ssh/agent/compatibility#configure-ssh_auth_sock-globally-for-every-client).
+1Password's SSH agent is to create and activate a `plist` entry
+[as described here](https://www.1password.dev/ssh/agent/compatibility#configure-ssh_auth_sock-globally-for-every-client).
 Note the command at the bottom that you need to activate it with `launchctl`.
 There's also an undocumented step that requires you allow the entry under
 macOS's "Login Items & Extensions" -> "App Background Activity" setting, or else

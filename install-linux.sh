@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+export HOMEBREW_NO_ANALYTICS=1
+
 brew_installer_env=()
 if [[ "${REMOTE_CONTAINERS:-}" == "true" || "${CODESPACES:-}" == "true" ]]; then
     # It needs help figuring out non-interactive for dev containers

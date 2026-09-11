@@ -1,4 +1,5 @@
 {{ if not .is_mac -}}
 Library/
+.dotfiles/zshrc.sh
 .local/share/fonts/
 {{ end -}}

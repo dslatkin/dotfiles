@@ -4,7 +4,7 @@
 {{ $is_pop_os := false -}}
 {{ $is_ubuntu := false -}}
 {{ $is_debian := false -}}
-{{ $is_dev_container := ne (env "DEV_CONTAINER") "" -}}
+{{ $is_dev_container := ne (env "REMOTE_CONTAINERS") "" -}}
 {{ $is_codespaces := ne (env "CODESPACES") "" -}}
 {{ $is_container := or $is_dev_container $is_codespaces -}}
 {{ if not (eq .chezmoi.os "darwin") -}}

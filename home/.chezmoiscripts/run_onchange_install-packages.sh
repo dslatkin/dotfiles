@@ -2,33 +2,29 @@
 
 echo "💬 Installing brew packages"
 
-formulae=(
-    ffmpeg
+readonly global_formulas=(
     mise
     shellcheck
     starship
+)
+
+readonly mac_only_formulas=(
+    ffmpeg
     yt-dlp
 )
 
-casks=(
+readonly formulas=(
+    "${global_formulas[@]}"
+    "${mac_only_formulas[@]}"
 )
 
-for formula in "${formulae[@]}"; do
+for formula in "${formulas[@]}"; do
     if brew ls -1 --formula "$formula" > /dev/null 2>&1; then
         continue
     fi
 
     echo "💬 Installing $formula"
     brew install --quiet --formula "$formula"
-done
-
-for cask in "${casks[@]}"; do
-    if brew ls -1 --cask "$cask" > /dev/null; then
-        continue
-    fi
-
-    echo "💬 Installing $cask"
-    brew install --quiet --cask "$cask"
 done
 
 echo "💬 Listing installed packages"
